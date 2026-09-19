@@ -1,0 +1,91 @@
+/* ==========================================================================
+   MundoComputerWeb - Estilos Globales y Efectos Gaming
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --gamer-negro: #080808;
+    --gamer-carbon: #111111;
+    --gamer-gris: #1C1C1C;
+    --gamer-plata: #B8B8B8;
+    --gamer-blanco: #F2F2F2;
+    --gamer-cyan: #00F2FE;
+    --gamer-blue: #4FACFE;
+}
+
+html, body {
+    overflow-anchor: none;
+}
+
+*,
+*::before,
+*::after {
+    overflow-anchor: none;
+}
+
+body {
+    background-color: #080808;
+    color: #F2F2F2;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    background-color: #00F2FE;
+    color: #080808;
+}
+
+/* Scrollbar personalizado Gaming */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #080808;
+}
+::-webkit-scrollbar-thumb {
+    background: #1C1C1C;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00F2FE;
+}
+
+/* Ocultar barra de scroll para contenedores con desplazamiento horizontal */
+.scrollbar-none::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Efectos Glow sutiles para tarjetas y elementos tecnológicos */
+.shadow-cyan-glow {
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.15);
+}
+
+.shadow-cyan-glow-hover:hover {
+    box-shadow: 0 0 35px rgba(0, 242, 254, 0.35);
+}
+
+/* Fondos decorativos con gradientes galácticos difusos */
+.glow-bg {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, rgba(79, 172, 254, 0.05) 50%, rgba(0,0,0,0) 70%);
+    filter: blur(50px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Smooth transitions */
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
