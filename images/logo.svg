@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+    <!-- Fondo Oscuro -->
+    <rect width="200" height="200" fill="#080808" />
+    
+    <!-- Anillo Trasero (Efecto 3D) -->
+    <path d="M 25,120 C 20,135 60,148 105,148 C 150,148 185,135 180,120 C 178,112 153,103 118,97" fill="none" stroke="#F2F2F2" stroke-width="4" />
+    
+    <!-- Cuerpo del Planeta -->
+    <circle cx="105" cy="100" r="50" fill="#F2F2F2" />
+    
+    <!-- Anillo Delantero (Efecto 3D) -->
+    <path d="M 180,120 C 185,105 145,92 100,92 C 55,92 20,105 25,120 C 28,128 53,137 88,143" fill="none" stroke="#F2F2F2" stroke-width="4" />
+    
+    <!-- Píxeles recortados en el borde izquierdo (cuadrados negros para dar el efecto de pixelación digital del logo) -->
+    <!-- Fila 1 -->
+    <rect x="52" y="80" width="10" height="10" fill="#080808" />
+    <rect x="62" y="80" width="10" height="10" fill="#080808" />
+    <!-- Fila 2 -->
+    <rect x="42" y="90" width="10" height="10" fill="#080808" />
+    <rect x="52" y="90" width="10" height="10" fill="#080808" />
+    <rect x="62" y="90" width="10" height="10" fill="#080808" />
+    <!-- Fila 3 -->
+    <rect x="47" y="100" width="10" height="10" fill="#080808" />
+    <rect x="57" y="100" width="10" height="10" fill="#080808" />
+    <!-- Fila 4 -->
+    <rect x="57" y="110" width="10" height="10" fill="#080808" />
+    <rect x="67" y="110" width="10" height="10" fill="#080808" />
+    <!-- Fila 5 -->
+    <rect x="67" y="120" width="10" height="10" fill="#080808" />
+    
+    <!-- Píxeles flotantes (blancos en el espacio vacío de la izquierda) -->
+    <rect x="25" y="70" width="8" height="8" fill="#F2F2F2" />
+    <rect x="38" y="72" width="8" height="8" fill="#F2F2F2" />
+    <rect x="20" y="83" width="8" height="8" fill="#F2F2F2" />
+    <rect x="32" y="85" width="8" height="8" fill="#F2F2F2" />
+    <rect x="28" y="96" width="8" height="8" fill="#F2F2F2" />
+</svg>
