@@ -1,0 +1,25 @@
+{
+  "name": "mundocomputerweb-html",
+  "version": "1.0.0",
+  "description": "Mundo Computer Web - Frontend estático puro (HTML, CSS, JavaScript, Tailwind CSS, Alpine.js)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "npx serve ."
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "keywords": [
+    "gaming",
+    "ecommerce",
+    "html",
+    "css",
+    "javascript",
+    "tailwind",
+    "alpinejs"
+  ],
+  "author": "Mundo Computer",
+  "license": "MIT"
+}

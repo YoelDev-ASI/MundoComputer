@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Gamer | MundoComputerWeb</title>
+    <meta name="description" content="Encuentra los mejores periféricos gamer del mercado en MundoComputerWeb. Auriculares, teclados, parlantes y más con compra rápida por WhatsApp.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN Configurado con el tema Gamer) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gamer: {
+                            negro: '#080808',
+                            carbon: '#111111',
+                            gris: '#1C1C1C',
+                            plata: '#B8B8B8',
+                            blanco: '#F2F2F2',
+                            cyan: '#00F2FE',
+                            blue: '#4FACFE',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'cyan-glow': '0 0 20px rgba(0, 242, 254, 0.15)',
+                        'cyan-glow-hover': '0 0 30px rgba(0, 242, 254, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Estilos Adicionales -->
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="bg-gamer-negro text-gamer-blanco min-h-screen flex flex-col relative overflow-x-hidden selection:bg-gamer-cyan selection:text-gamer-negro">
+
+    <!-- Brillos Espaciales de Fondo (Decorativo) -->
+    <div class="glow-bg top-[-100px] left-[-100px]"></div>
+    <div class="glow-bg top-[40%] right-[-150px]" style="background: radial-gradient(circle, rgba(138, 43, 226, 0.12) 0%, rgba(0,0,0,0) 70%);"></div>
+    <div class="glow-bg bottom-[-100px] left-[20%]"></div>
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 bg-gamer-negro/80 backdrop-blur-md border-b border-gamer-gris/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo con SVG de Planeta Pixelado -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 flex items-center justify-between relative transition-transform duration-500 group-hover:scale-105">
+                    <svg viewBox="0 0 200 200" class="w-full h-full fill-current text-gamer-blanco">
+                        <!-- Anillo trasero (efecto 3D) -->
+                        <path d="M 25,120 C 20,135 60,148 105,148 C 150,148 185,135 180,120 C 178,112 153,103 118,97" fill="none" stroke="#F2F2F2" stroke-width="4" />
+                        
+                        <!-- Planeta Sólido Central -->
+                        <circle cx="105" cy="100" r="50" fill="#F2F2F2" />
+                        
+                        <!-- Anillo delantero (perspectiva 3D) -->
+                        <path d="M 180,120 C 185,105 145,92 100,92 C 55,92 20,105 25,120 C 28,128 53,137 88,143" fill="none" stroke="#F2F2F2" stroke-width="4" />
+                        
+                        <!-- Píxeles recortados en el borde izquierdo -->
+                        <rect x="52" y="80" width="10" height="10" fill="#080808" />
+                        <rect x="62" y="80" width="10" height="10" fill="#080808" />
+                        <rect x="42" y="90" width="10" height="10" fill="#080808" />
+                        <rect x="52" y="90" width="10" height="10" fill="#080808" />
+                        <rect x="62" y="90" width="10" height="10" fill="#080808" />
+                        <rect x="47" y="100" width="10" height="10" fill="#080808" />
+                        <rect x="57" y="100" width="10" height="10" fill="#080808" />
+                        <rect x="57" y="110" width="10" height="10" fill="#080808" />
+                        <rect x="67" y="110" width="10" height="10" fill="#080808" />
+                        <rect x="67" y="120" width="10" height="10" fill="#080808" />
+                        
+                        <!-- Píxeles flotantes espaciales -->
+                        <rect x="25" y="70" width="8" height="8" fill="#F2F2F2" />
+                        <rect x="38" y="72" width="8" height="8" fill="#F2F2F2" />
+                        <rect x="20" y="83" width="8" height="8" fill="#F2F2F2" />
+                        <rect x="32" y="85" width="8" height="8" fill="#F2F2F2" />
+                        <rect x="28" y="96" width="8" height="8" fill="#F2F2F2" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-wider text-gamer-blanco block leading-none">MUNDO</span>
+                    <span class="text-xs tracking-widest text-gamer-plata block font-light">COMPUTER WEB</span>
+                </div>
+            </a>
+
+            <!-- Navegación Escritorio -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#catalogo" class="text-gamer-plata hover:text-gamer-cyan transition-colors text-sm font-medium">Catálogo</a>
+                <a href="#contacto" class="text-gamer-plata hover:text-gamer-cyan transition-colors text-sm font-medium">Contacto</a>
+            </nav>
+
+            <!-- Botón WhatsApp de Acción Rápida -->
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/584121234567" target="_blank" rel="noopener noreferrer" 
+                   class="bg-gamer-carbon hover:bg-gamer-gris border border-gamer-gris hover:border-gamer-cyan text-gamer-blanco px-4 py-2 rounded-full flex items-center gap-2 text-xs font-semibold tracking-wider uppercase transition-all duration-300 shadow-sm hover:shadow-cyan-glow">
+                    <svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.989 3.3 1.486 4.965 1.488 5.405-.001 9.805-4.4 9.808-9.81.002-2.62-1.018-5.086-2.87-6.938C16.638 2.04 14.17 1.018 11.55 1.017c-5.41 0-9.813 4.401-9.815 9.813-.001 1.958.51 3.827 1.484 5.445L2.2 21.8l5.63-1.476z"/>
+                    </svg>
+                    <span>Asesoría En Vivo</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="flex-grow z-10 relative">
+        <div x-data="catalogData()" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            
+            <!-- HERO SECCIÓN GAMER -->
+            <div class="relative rounded-3xl overflow-hidden mb-12 border border-gamer-gris bg-gradient-to-br from-gamer-carbon to-gamer-negro p-8 md:p-12 shadow-2xl">
+                <div class="relative z-10 max-w-2xl space-y-6">
+                    <span class="inline-block bg-gradient-to-r from-gamer-cyan to-gamer-blue text-gamer-negro text-xs font-extrabold tracking-widest uppercase px-3 py-1 rounded-full shadow-lg">
+                        Equipamiento Espacial
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gamer-blanco leading-none">
+                        Lleva tu Setup al <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-gamer-cyan to-gamer-blue">
+                            Siguiente Nivel
+                        </span>
+                    </h1>
+                    <p class="text-sm md:text-base text-gamer-plata leading-relaxed">
+                        Explora periféricos de alto rendimiento y tecnología de vanguardia. Teclados mecánicos con respuesta instantánea, mouses ultra-ligeros, y audio de inmersión total. 
+                    </p>
+                    <div class="flex items-center gap-4 pt-2">
+                        <a href="#catalogo" class="bg-gradient-to-r from-gamer-cyan to-gamer-blue hover:from-gamer-blue hover:to-gamer-cyan text-gamer-negro font-bold text-sm tracking-wider uppercase px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Ver Catálogo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Logo Decorativo de fondo (Gigante difuminado) -->
+                <div class="absolute right-[-80px] bottom-[-80px] w-96 h-96 opacity-10 pointer-events-none">
+                    <svg viewBox="0 0 200 200" class="w-full h-full fill-current text-gamer-blanco">
+                        <path d="M 25,120 C 20,135 60,148 105,148 C 150,148 185,135 180,120 C 178,112 153,103 118,97" fill="none" stroke="#F2F2F2" stroke-width="4" />
+                        <circle cx="105" cy="100" r="50" fill="#F2F2F2" />
+                        <path d="M 180,120 C 185,105 145,92 100,92 C 55,92 20,105 25,120 C 28,128 53,137 88,143" fill="none" stroke="#F2F2F2" stroke-width="4" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- PRODUCTOS DESTACADOS -->
+            <div class="mb-16" x-show="featuredProducts.length > 0">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-8 bg-gradient-to-b from-gamer-cyan to-gamer-blue rounded-full block"></span>
+                        <h2 class="text-2xl font-bold uppercase tracking-wider text-gamer-blanco">Destacados del Espacio</h2>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <template x-for="featProd in featuredProducts" :key="'feat-' + featProd.id">
+                        <div class="group relative rounded-2xl bg-gamer-carbon border border-gamer-gris/70 hover:border-gamer-cyan/50 p-5 flex flex-col justify-between transition-all duration-500 hover:shadow-cyan-glow transform hover:-translate-y-1">
+                            <div>
+                                <!-- Imagen con Efecto Hover -->
+                                <div class="relative rounded-xl overflow-hidden aspect-video bg-gamer-negro mb-4 flex items-center justify-center">
+                                    <span x-show="featProd.old_price" class="absolute top-2 left-2 z-10 bg-gradient-to-r from-gamer-cyan to-gamer-blue text-gamer-negro text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full shadow-md">
+                                        Oferta
+                                    </span>
+                                    <img :src="featProd.image_url" :alt="featProd.name" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                </div>
+                                <span class="text-[10px] tracking-widest uppercase font-bold text-gamer-cyan mb-1 block" x-text="categoryName(featProd.category)"></span>
+                                <h3 class="font-bold text-base text-gamer-blanco group-hover:text-gamer-cyan transition-colors mb-2 line-clamp-1">
+                                    <a :href="'producto.html?slug=' + featProd.slug" x-text="featProd.name"></a>
+                                </h3>
+                                <p class="text-xs text-gamer-plata line-clamp-2 mb-4" x-text="featProd.description"></p>
+                            </div>
+                            <div>
+                                <!-- Precios y Botón de WhatsApp -->
+                                <div class="flex items-baseline gap-2 mb-4">
+                                    <span class="text-xl font-extrabold text-gamer-blanco" x-text="'$' + Number(featProd.price).toFixed(2)"></span>
+                                    <template x-if="featProd.old_price">
+                                        <span class="text-xs text-gamer-plata line-through" x-text="'$' + Number(featProd.old_price).toFixed(2)"></span>
+                                    </template>
+                                </div>
+                                <div class="flex gap-2">
+                                    <a :href="getWhatsAppLink(featProd)" target="_blank" rel="noopener noreferrer" 
+                                       class="flex-grow bg-gradient-to-r from-gamer-cyan to-gamer-blue hover:from-gamer-blue hover:to-gamer-cyan text-gamer-negro font-bold text-xs uppercase py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-md">
+                                        <svg class="w-4 h-4 text-gamer-negro fill-current" viewBox="0 0 24 24">
+                                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.989 3.3 1.486 4.965 1.488 5.405-.001 9.805-4.4 9.808-9.81.002-2.62-1.018-5.086-2.87-6.938C16.638 2.04 14.17 1.018 11.55 1.017c-5.41 0-9.813 4.401-9.815 9.813-.001 1.958.51 3.827 1.484 5.445L2.2 21.8l5.63-1.476z"/>
+                                        </svg>
+                                        <span>Comprar ya</span>
+                                    </a>
+                                    <a :href="'producto.html?slug=' + featProd.slug" 
+                                       class="bg-gamer-gris hover:bg-gamer-gris/70 border border-gamer-gris text-gamer-blanco hover:text-gamer-cyan p-2.5 rounded-xl transition-all duration-300" title="Ver Detalles">
+                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- SECCIÓN CATÁLOGO PRINCIPAL -->
+            <div id="catalogo" class="pt-8 border-t border-gamer-gris/50 scroll-mt-24">
+                <!-- BARRA DE BÚSQUEDA Y FILTRADO (Alpine.js) -->
+                <div class="bg-gamer-carbon border border-gamer-gris rounded-3xl p-6 mb-10 flex flex-col gap-6">
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                        <!-- Buscador -->
+                        <div class="relative flex-grow max-w-xl">
+                            <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <svg class="w-5 h-5 text-gamer-plata" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </span>
+                            <input type="text" x-model="search" placeholder="Buscar periférico gamer (ej: Razer, Logitech, teclado)..." 
+                                   class="w-full bg-gamer-negro text-gamer-blanco placeholder-gamer-plata pl-12 pr-4 py-3 rounded-2xl border border-gamer-gris focus:border-gamer-cyan focus:outline-none transition-all duration-300 text-sm">
+                        </div>
+                        
+                        <!-- Ordenador -->
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-semibold text-gamer-plata uppercase tracking-widest">Ordenar:</span>
+                            <select x-model="sortBy" class="bg-gamer-negro text-gamer-blanco border border-gamer-gris rounded-2xl px-4 py-2.5 text-xs font-medium focus:border-gamer-cyan focus:outline-none transition-all duration-300">
+                                <option value="featured">Predeterminado</option>
+                                <option value="price-asc">Precio: Menor a Mayor</option>
+                                <option value="price-desc">Precio: Mayor a Menor</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Botones de Categorías -->
+                    <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+                        <button type="button" 
+                                @click.prevent="setCategory('all')" 
+                                :class="activeCategory === 'all' ? 'bg-gradient-to-r from-gamer-cyan to-gamer-blue text-gamer-negro font-bold border border-transparent' : 'bg-gamer-negro border border-gamer-gris text-gamer-plata hover:border-gamer-cyan hover:text-gamer-blanco'" 
+                                class="px-5 py-2.5 rounded-full text-xs uppercase tracking-wider transition-all duration-300 whitespace-nowrap">
+                            Todos
+                        </button>
+                        <template x-for="(val, key) in categoriesMap" :key="key">
+                            <button type="button" 
+                                    @click.prevent="setCategory(key)" 
+                                    :class="activeCategory === key ? 'bg-gradient-to-r from-gamer-cyan to-gamer-blue text-gamer-negro font-bold border border-transparent' : 'bg-gamer-negro border border-gamer-gris text-gamer-plata hover:border-gamer-cyan hover:text-gamer-blanco'" 
+                                    class="px-5 py-2.5 rounded-full text-xs uppercase tracking-wider transition-all duration-300 whitespace-nowrap"
+                                    x-text="val">
+                            </button>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- GRID DE PRODUCTOS DINÁMICO (Alpine.js) -->
+                <div class="relative min-h-[500px]">
+                    <!-- Listado -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" x-show="filteredProducts().length > 0">
+                        <template x-for="product in filteredProducts()" :key="product.id">
+                            <div class="group relative rounded-2xl bg-gamer-carbon border border-gamer-gris/70 hover:border-gamer-cyan/50 p-6 flex flex-col justify-between transition-all duration-500 hover:shadow-cyan-glow transform hover:-translate-y-1">
+                                <div>
+                                    <!-- Contenedor Imagen -->
+                                    <div class="relative rounded-xl overflow-hidden aspect-video bg-gamer-negro mb-5 flex items-center justify-center">
+                                        <span x-show="product.old_price" class="absolute top-2.5 left-2.5 z-10 bg-gradient-to-r from-gamer-cyan to-gamer-blue text-gamer-negro text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full">
+                                            Oferta
+                                        </span>
+                                        <img :src="product.image_url" :alt="product.name" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    </div>
+                                    
+                                    <!-- Categoría y Título -->
+                                    <span class="text-[10px] tracking-widest uppercase font-bold text-gamer-cyan mb-1.5 block" x-text="categoryName(product.category)"></span>
+                                    <h3 class="font-bold text-lg text-gamer-blanco group-hover:text-gamer-cyan transition-colors mb-2.5 line-clamp-1">
+                                        <a :href="'producto.html?slug=' + product.slug" x-text="product.name"></a>
+                                    </h3>
+                                    
+                                    <!-- Descripción -->
+                                    <p class="text-xs text-gamer-plata line-clamp-2 mb-5 leading-relaxed" x-text="product.description"></p>
+                                </div>
+
+                                <div>
+                                    <!-- Especificaciones destacadas -->
+                                    <div class="border-t border-gamer-gris/40 pt-4 mb-4">
+                                        <div class="grid grid-cols-2 gap-2 text-[10px] text-gamer-plata">
+                                            <template x-for="(value, key) in Object.entries(product.specifications || {}).slice(0, 2)" :key="key">
+                                                <div class="flex items-center gap-1">
+                                                    <span class="w-1.5 h-1.5 bg-gamer-cyan/70 rounded-full"></span>
+                                                    <span class="font-bold" x-text="value[0] + ':'"></span>
+                                                    <span class="truncate" x-text="value[1]"></span>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
+
+                                    <!-- Precios y Acciones -->
+                                    <div class="flex items-baseline justify-between gap-2 mb-4">
+                                        <div class="flex items-baseline gap-2">
+                                            <span class="text-2xl font-extrabold text-gamer-blanco" x-text="'$' + Number(product.price).toFixed(2)"></span>
+                                            <template x-if="product.old_price">
+                                                <span class="text-xs text-gamer-plata line-through" x-text="'$' + Number(product.old_price).toFixed(2)"></span>
+                                            </template>
+                                        </div>
+                                        <span :class="product.stock > 0 ? 'text-emerald-400' : 'text-rose-500'" class="text-[10px] uppercase font-bold tracking-wider" x-text="product.stock > 0 ? 'Disponible' : 'Agotado'"></span>
+                                    </div>
+
+                                    <div class="flex gap-3">
+                                        <a :href="getWhatsAppLink(product)" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-grow bg-gradient-to-r from-gamer-cyan to-gamer-blue hover:from-gamer-blue hover:to-gamer-cyan text-gamer-negro font-extrabold text-xs uppercase py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-cyan-glow">
+                                            <svg class="w-4 h-4 text-gamer-negro fill-current" viewBox="0 0 24 24">
+                                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.989 3.3 1.486 4.965 1.488 5.405-.001 9.805-4.4 9.808-9.81.002-2.62-1.018-5.086-2.87-6.938C16.638 2.04 14.17 1.018 11.55 1.017c-5.41 0-9.813 4.401-9.815 9.813-.001 1.958.51 3.827 1.484 5.445L2.2 21.8l5.63-1.476z"/>
+                                            </svg>
+                                            <span>Comprar ahora</span>
+                                        </a>
+                                        <a :href="'producto.html?slug=' + product.slug" 
+                                           class="bg-gamer-gris hover:bg-gamer-gris/70 border border-gamer-gris text-gamer-blanco hover:text-gamer-cyan p-3 rounded-xl transition-all duration-300" title="Ver Detalles">
+                                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+
+                    <!-- Sin resultados -->
+                    <div x-show="filteredProducts().length === 0" class="text-center py-20 bg-gamer-carbon border border-gamer-gris rounded-3xl p-8" x-transition>
+                        <svg class="w-16 h-16 text-gamer-plata mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h3 class="text-lg font-bold text-gamer-blanco mb-1">No encontramos lo que buscas</h3>
+                        <p class="text-sm text-gamer-plata">Prueba cambiando los filtros o la palabra clave en tu búsqueda espacial.</p>
+                        <button type="button" @click.prevent="search = ''; setCategory('all')" class="mt-4 inline-block bg-gamer-gris text-gamer-blanco hover:text-gamer-cyan border border-gamer-gris hover:border-gamer-cyan text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-xl transition-all duration-300">
+                            Restablecer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contacto" class="bg-gamer-carbon border-t border-gamer-gris/50 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Información Tienda -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8">
+                            <svg viewBox="0 0 200 200" class="w-full h-full fill-current text-gamer-blanco">
+                                <path d="M 25,120 C 20,135 60,148 105,148 C 150,148 185,135 180,120 C 178,112 153,103 118,97" fill="none" stroke="#F2F2F2" stroke-width="4" />
+                                <circle cx="105" cy="100" r="50" fill="#F2F2F2" />
+                                <path d="M 180,120 C 185,105 145,92 100,92 C 55,92 20,105 25,120 C 28,128 53,137 88,143" fill="none" stroke="#F2F2F2" stroke-width="4" />
+                                <rect x="52" y="80" width="10" height="10" fill="#111111" />
+                                <rect x="62" y="80" width="10" height="10" fill="#111111" />
+                                <rect x="42" y="90" width="10" height="10" fill="#111111" />
+                                <rect x="52" y="90" width="10" height="10" fill="#111111" />
+                                <rect x="62" y="90" width="10" height="10" fill="#111111" />
+                                <rect x="47" y="100" width="10" height="10" fill="#111111" />
+                                <rect x="57" y="100" width="10" height="10" fill="#111111" />
+                                <rect x="57" y="110" width="10" height="10" fill="#111111" />
+                                <rect x="67" y="110" width="10" height="10" fill="#111111" />
+                                <rect x="67" y="120" width="10" height="10" fill="#111111" />
+                            </svg>
+                        </div>
+                        <span class="text-lg font-bold tracking-wider">MUNDO COMPUTER WEB</span>
+                    </div>
+                    <p class="text-sm text-gamer-plata leading-relaxed max-w-sm">
+                        Tu tienda especializada en periféricos de gaming de alta calidad. Mouses, teclados, auriculares, micrófonos y más para llevar tu setup al siguiente nivel espacial.
+                    </p>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-widest text-gamer-blanco mb-4">Periféricos</h3>
+                    <ul class="space-y-2 text-sm text-gamer-plata">
+                        <li><a href="#catalogo" @click="setCategory('keyboards')" class="hover:text-gamer-cyan transition-colors">Teclados Mecánicos</a></li>
+                        <li><a href="#catalogo" @click="setCategory('mice')" class="hover:text-gamer-cyan transition-colors">Mouses de Alta Precisión</a></li>
+                        <li><a href="#catalogo" @click="setCategory('headsets')" class="hover:text-gamer-cyan transition-colors">Auriculares Inmersivos</a></li>
+                        <li><a href="#catalogo" @click="setCategory('microphones')" class="hover:text-gamer-cyan transition-colors">Micrófonos Profesionales</a></li>
+                        <li><a href="#catalogo" @click="setCategory('mousepads')" class="hover:text-gamer-cyan transition-colors">Mousepads Gaming</a></li>
+                    </ul>
+                </div>
+
+                <!-- Ubicación & Soporte -->
+                <div class="space-y-4 text-sm text-gamer-plata">
+                    <h3 class="text-sm font-semibold uppercase tracking-widest text-gamer-blanco">Contacto Directo</h3>
+                    <p class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-gamer-cyan flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span>Venezuela / Ventas Online a nivel nacional</span>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-gamer-cyan flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        <a href="https://wa.me/584121234567" class="hover:text-gamer-cyan transition-colors" target="_blank" rel="noopener noreferrer">WhatsApp: +58 412 1234567</a>
+                    </p>
+
+                    <!-- Redes Sociales -->
+                    <div class="pt-2">
+                        <span class="text-xs uppercase tracking-widest text-gamer-blanco font-semibold block mb-2.5">Síguenos en Redes</span>
+                        <div class="flex items-center gap-3">
+                            <!-- Instagram -->
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
+                               class="w-9 h-9 rounded-xl bg-gamer-negro border border-gamer-gris hover:border-gamer-cyan text-gamer-plata hover:text-gamer-cyan flex items-center justify-center transition-all duration-300 hover:shadow-cyan-glow group"
+                               title="Síguenos en Instagram" aria-label="Instagram">
+                                <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+
+                            <!-- TikTok -->
+                            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" 
+                               class="w-9 h-9 rounded-xl bg-gamer-negro border border-gamer-gris hover:border-gamer-cyan text-gamer-plata hover:text-gamer-cyan flex items-center justify-center transition-all duration-300 hover:shadow-cyan-glow group"
+                               title="Síguenos en TikTok" aria-label="TikTok">
+                                <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24">
+                                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                                </svg>
+                            </a>
+
+                            <!-- Facebook -->
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" 
+                               class="w-9 h-9 rounded-xl bg-gamer-negro border border-gamer-gris hover:border-gamer-cyan text-gamer-plata hover:text-gamer-cyan flex items-center justify-center transition-all duration-300 hover:shadow-cyan-glow group"
+                               title="Síguenos en Facebook" aria-label="Facebook">
+                                <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gamer-gris/30 flex flex-col sm:flex-row items-center justify-between text-xs text-gamer-plata">
+                <p>&copy; 2026 MundoComputerWeb. Todos los derechos reservados. Estilo Tecnológico + Gaming.</p>
+                <div class="mt-4 sm:mt-0 flex gap-4">
+                    <span class="hover:text-gamer-blanco transition-colors">Diseño Minimalista & Profesional</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Datos y Lógica -->
+    <script src="js/products.js"></script>
+    <script>
+        function catalogData() {
+            return {
+                activeCategory: 'all',
+                search: '',
+                sortBy: 'featured',
+                products: window.PRODUCTS || [],
+                categoriesMap: window.CATEGORIES || {},
+                featuredProducts: [],
+                
+                init() {
+                    // Cargar destacados
+                    this.featuredProducts = this.products.filter(p => p.is_featured).slice(0, 4);
+
+                    // Leer categoría inicial desde URL si existe
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const cat = urlParams.get('cat');
+                    if (cat && (this.categoriesMap[cat] || cat === 'all')) {
+                        this.activeCategory = cat;
+                    }
+
+                    // Si viene con categoría o con hash #catalogo, llevar directo a la sección del catálogo
+                    if (cat || window.location.hash === '#catalogo') {
+                        this.$nextTick(() => {
+                            setTimeout(() => {
+                                const el = document.getElementById('catalogo');
+                                if (el) {
+                                    el.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }, 100);
+                        });
+                    }
+                },
+                
+                setCategory(cat) {
+                    this.activeCategory = cat;
+                },
+
+                categoryName(catKey) {
+                    return this.categoriesMap[catKey] || catKey;
+                },
+                
+                getWhatsAppLink(product) {
+                    return window.buildWhatsAppUrl(product);
+                },
+                
+                filteredProducts() {
+                    let list = [...this.products];
+                    
+                    // Filtrar por Categoría
+                    if (this.activeCategory !== 'all') {
+                        list = list.filter(p => p.category === this.activeCategory);
+                    }
+                    
+                    // Filtrar por Búsqueda (Buscador instantáneo)
+                    if (this.search.trim() !== '') {
+                        const q = this.search.toLowerCase();
+                        list = list.filter(p => 
+                            p.name.toLowerCase().includes(q) || 
+                            p.description.toLowerCase().includes(q) ||
+                            (this.categoriesMap[p.category] && this.categoriesMap[p.category].toLowerCase().includes(q))
+                        );
+                    }
+                    
+                    // Ordenar
+                    if (this.sortBy === 'price-asc') {
+                        list.sort((a, b) => Number(a.price) - Number(b.price));
+                    } else if (this.sortBy === 'price-desc') {
+                        list.sort((a, b) => Number(b.price) - Number(a.price));
+                    } else {
+                        // Por defecto: Destacados primero
+                        list.sort((a, b) => (b.is_featured ? 1 : 0) - (a.is_featured ? 1 : 0));
+                    }
+                    
+                    return list;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
