@@ -177,54 +177,6 @@
             font-size: 15px !important;
         }
 
-        /* 📡 RESPLANDOR SUAVE EN DEGRADÉ AZUL Y VIBRACIÓN TÁCTIL (ANDROID & IOS) */
-        .footer-radar-pulse {
-            position: absolute;
-            pointer-events: none;
-            z-index: 30;
-            transform: translate(-50%, -50%);
-            width: 0;
-            height: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-glow-bloom {
-            position: absolute;
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            /* Degradé radial puro, sin líneas ni bordes */
-            background: radial-gradient(circle, rgba(0, 242, 254, 0.6) 0%, rgba(0, 160, 255, 0.3) 30%, rgba(0, 80, 220, 0.1) 55%, transparent 75%);
-            filter: blur(16px);
-            pointer-events: none;
-            animation: footer-bloom-anim 0.65s cubic-bezier(0.12, 0.8, 0.25, 1) forwards;
-        }
-
-        @keyframes footer-bloom-anim {
-            0% {
-                transform: scale(0.25);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.6);
-                opacity: 0;
-            }
-        }
-
-        /* Micro-vibración visual de la pantalla / pie de página */
-        .footer-vibrating {
-            animation: footer-haptic-shake 0.18s ease-in-out;
-        }
-
-        @keyframes footer-haptic-shake {
-            0% { transform: translateY(0); }
-            25% { transform: translateY(-1.5px) translateX(0.8px); }
-            50% { transform: translateY(1.5px) translateX(-0.8px); }
-            75% { transform: translateY(-0.8px); }
-            100% { transform: translateY(0); }
-        }
     </style>
 </head>
 
@@ -363,12 +315,12 @@
                 <ul class="pc-subnav-list">
                     <li><a href="index.html" class="pc-subnav-link active">Inicio</a></li>
                     <li><a href="categoria.html?cat=novedades" class="pc-subnav-link">Novedades</a></li>
+                    <li><a href="categoria.html" class="pc-subnav-link">Ver Todo</a></li>
                     <li><a href="categoria.html?cat=keyboards" class="pc-subnav-link">Teclados</a></li>
                     <li><a href="categoria.html?cat=accessories" class="pc-subnav-link">Accesorios Setup</a></li>
                     <li><a href="categoria.html?cat=mice" class="pc-subnav-link">Mouses</a></li>
                     <li><a href="categoria.html?cat=headsets" class="pc-subnav-link">Auriculares</a></li>
                     <li><a href="categoria.html?cat=monitors" class="pc-subnav-link">Monitores</a></li>
-                    <li><a href="categoria.html" class="pc-subnav-link">Ver Todo</a></li>
                 </ul>
             </div>
         </nav>
@@ -382,10 +334,6 @@
             <img src="images/banners/hero_gaming_pc.jpg" alt="Gaming Hardware Setup" class="pc-hero-bg-image">
             <div class="pc-hero-overlay"></div>
             <div class="pc-hero-content">
-                <span
-                    class="inline-block text-[11px] font-extrabold uppercase tracking-widest text-gamer-cyan bg-gamer-cyan/10 border border-gamer-cyan/30 px-3.5 py-1 rounded-full mb-4 shadow-lg">
-                    Hardware & Periféricos Oficiales
-                </span>
                 <h1
                     class="text-3xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none mb-4">
                     Todo lo que tu <br>

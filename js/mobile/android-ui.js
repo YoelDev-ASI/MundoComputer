@@ -6,7 +6,6 @@
  * Comportamientos específicos de Android:
  * - Efecto Ripple (onda) Material Design al presionar botones y tarjetas
  * - Navegación estilo Top App Bar y Bottom Navigation Bar
- * - Haptic feedback mediante Navigator.vibrate (si está disponible)
  * =============================================================================
  */
 

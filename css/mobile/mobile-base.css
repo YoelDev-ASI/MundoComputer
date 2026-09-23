@@ -175,56 +175,7 @@
     -webkit-tap-highlight-color: transparent !important;
 }
 
-/* ==========================================================================
-   📡 RESPLANDOR SUAVE EN DEGRADÉ AZUL Y VIBRACIÓN TÁCTIL EN FOOTER (ANDROID & IOS)
-   ========================================================================== */
-.footer-radar-pulse {
-    position: absolute;
-    pointer-events: none;
-    z-index: 30;
-    transform: translate(-50%, -50%);
-    width: 0;
-    height: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.footer-glow-bloom {
-    position: absolute;
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    /* Degradé radial puro, sin líneas ni bordes */
-    background: radial-gradient(circle, rgba(0, 242, 254, 0.6) 0%, rgba(0, 160, 255, 0.3) 30%, rgba(0, 80, 220, 0.1) 55%, transparent 75%);
-    filter: blur(16px);
-    pointer-events: none;
-    animation: footer-bloom-anim 0.65s cubic-bezier(0.12, 0.8, 0.25, 1) forwards;
-}
-
-@keyframes footer-bloom-anim {
-    0% {
-        transform: scale(0.25);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1.6);
-        opacity: 0;
-    }
-}
-
-/* Micro-vibración visual de la pantalla / pie de página */
-.footer-vibrating {
-    animation: footer-haptic-shake 0.18s ease-in-out;
-}
-
-@keyframes footer-haptic-shake {
-    0% { transform: translateY(0); }
-    25% { transform: translateY(-1.5px) translateX(0.8px); }
-    50% { transform: translateY(1.5px) translateX(-0.8px); }
-    75% { transform: translateY(-0.8px); }
-    100% { transform: translateY(0); }
-}
 
 /* ==========================================================================
    📱 MENÚ LATERAL DESPLEGABLE (OFF-CANVAS DRAWER) - ESTILO MATE PROFESIONAL
