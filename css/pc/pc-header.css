@@ -99,7 +99,25 @@
 }
 
 /* Iconos y Botones de Acción del Encabezado (Carrito, Menú, Búsqueda) */
-.header-menu-btn,
+.header-menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+@media (max-width: 768px) {
+    .header-menu-btn {
+        display: flex;
+    }
+}
+
 .header-search-toggle-btn {
     display: flex;
     align-items: center;

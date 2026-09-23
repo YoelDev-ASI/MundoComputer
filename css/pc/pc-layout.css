@@ -9,9 +9,9 @@
     position: relative;
     border-radius: 24px;
     overflow: hidden;
-    background: radial-gradient(circle at 70% 50%, #0e203c 0%, #08111e 60%, #080808 100%);
-    border: 1px solid rgba(0, 242, 254, 0.15);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    background: radial-gradient(circle at 75% 50%, #0e203c 0%, #08111e 60%, #080808 100%);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 242, 254, 0.05);
     min-height: 420px;
     display: flex;
     align-items: center;
@@ -24,15 +24,16 @@
     height: 100%;
     object-fit: cover;
     object-position: right center;
-    opacity: 0.65;
+    opacity: 0.72;
     mix-blend-mode: lighten;
     pointer-events: none;
+    transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
 .pc-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, #080808 0%, rgba(8, 8, 8, 0.88) 45%, rgba(8, 8, 8, 0.2) 100%);
+    background: linear-gradient(90deg, #080808 0%, rgba(8, 8, 8, 0.85) 45%, rgba(8, 8, 8, 0.25) 100%);
     z-index: 1;
 }
 
@@ -41,6 +42,31 @@
     z-index: 2;
     max-width: 620px;
     padding: 48px;
+}
+
+.hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #00F2FE;
+    color: #080808 !important;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 12px;
+    box-shadow: none !important;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    text-decoration: none;
+}
+
+.hero-cta-btn:hover {
+    background: #00d6e2;
+    box-shadow: none !important;
+    color: #080808 !important;
+}
+
+.hero-cta-btn:active {
+    opacity: 0.9;
 }
 
 /* Franja de Entregas a Nivel Nacional */
@@ -224,4 +250,27 @@
     background: #070b13 !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
+
+/* ==========================================================================
+   🍔 MENÚ 3 BARRAS (HAMBURGUESA) EN PC
+   - Oculto en PC de escritorio (ancho normal)
+   - Aparece de forma fluida conforme se achica la pantalla (<= 768px)
+   ========================================================================== */
+@media (min-width: 769px) {
+    .header-menu-btn {
+        display: none !important;
+    }
+}
+
+.platform-pc .header-menu-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .header-menu-btn,
+    .platform-pc .header-menu-btn {
+        display: flex !important;
+    }
+}
+
 
