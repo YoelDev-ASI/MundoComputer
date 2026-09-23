@@ -1,0 +1,71 @@
+/* ==========================================================================
+   🤖 CONFIGURACIÓN DE UI: ANDROID (MATERIAL DESIGN 3)
+   Archivo: css/mobile/android-theme.css
+   Paleta: Azul oscuro, Cyan espacial y Carbono
+   ========================================================================== */
+
+/* Clases activadas bajo el selector .platform-android */
+.platform-android {
+    --md-sys-color-primary: #00F2FE;
+    --md-sys-color-surface: #0e1726;
+    --md-sys-color-on-surface: #f1f5f9;
+}
+
+.platform-android body {
+    font-family: 'Roboto', 'Outfit', sans-serif;
+    background-color: #080d16;
+}
+
+/* Efecto de Onda Táctil (Ripple) Material 3 */
+.android-ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 242, 254, 0.25);
+    transform: scale(0);
+    animation: android-ripple-anim 0.55s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes android-ripple-anim {
+    to {
+        transform: scale(3.5);
+        opacity: 0;
+    }
+}
+
+/* Floating Action Button (FAB) en Cyan y Azul Tecnológico */
+.platform-android .android-fab {
+    display: flex !important;
+    position: fixed;
+    bottom: 84px;
+    right: 18px;
+    z-index: 40;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background-color: #00F2FE;
+    color: #080808;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.platform-android .android-fab:active {
+    transform: scale(0.92);
+}
+
+/* Tarjetas elevadas estilo Material */
+.platform-android .pc-product-card {
+    border-radius: 12px;
+    background-color: #0e1626;
+    border-color: #1e293b;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Top App Bar Android */
+.platform-android .mobile-top-bar {
+    background-color: #0a101b;
+    border-bottom: 1px solid #1e293b;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}

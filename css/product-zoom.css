@@ -1,0 +1,105 @@
+/* ==========================================================================
+   🔍 COMPONENTE ESTÉTICO: PRODUCT IMAGE ZOOM (LUPA DE ACERCAMIENTO)
+   Archivo: css/product-zoom.css
+   Diseño: Redondeado idéntico a index.html (sin esquinas rectas), botón circular limpio
+   ========================================================================== */
+
+/* Contenedor Principal de la Imagen (Estilo redondeado tipo index.html) */
+.product-zoom-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #070b13;
+    border-radius: 22px;
+    overflow: hidden;
+    display: block;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.6);
+    user-select: none;
+    touch-action: pan-y;
+}
+
+@media (min-width: 640px) {
+    .product-zoom-frame {
+        aspect-ratio: 4 / 3;
+        min-height: 440px;
+    }
+}
+
+/* Imagen del Producto: estilo exacto a index.html (ocupa el marco redondeado sin bordes rectos) */
+.product-zoom-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 22px;
+    transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+    transform-origin: center center;
+    pointer-events: none;
+    will-change: transform, transform-origin;
+}
+
+/* Cuando el modo lupa está activo */
+.product-zoom-frame.zoom-enabled {
+    cursor: crosshair;
+}
+
+.product-zoom-frame.zoom-enabled .product-zoom-img {
+    transition: transform 0.08s ease-out;
+}
+
+/* Botón de la Lupa: Circular, limpio, SIN brillo / resplandor, con ícono grande */
+.product-zoom-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 30;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(13, 20, 32, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #f1f5f9;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    padding: 0;
+}
+
+.product-zoom-btn:hover {
+    color: #00F2FE;
+    border-color: #00F2FE;
+    background: #152238;
+    transform: scale(1.06);
+}
+
+/* Estado ACTIVO del Botón: fondo sólido cyan, sin brillo difuso */
+.product-zoom-btn.is-active {
+    background: #00F2FE;
+    color: #050811;
+    border-color: #00F2FE;
+    transform: scale(1.06);
+}
+
+.product-zoom-btn.is-active:hover {
+    background: #38bdf8;
+    border-color: #38bdf8;
+    color: #050811;
+}
+
+/* Ícono de la Lupa Agrandado */
+.product-zoom-btn .zoom-icon {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+/* Indicador informativo retirado */
+.zoom-status-badge {
+    display: none !important;
+}

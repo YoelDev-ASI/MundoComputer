@@ -1,0 +1,83 @@
+/* ==========================================================================
+   📱 CONFIGURACIÓN DE UI: ANDROID E IOS - BASE MÓVIL COMÚN
+   Archivo: css/mobile/mobile-base.css
+   Paleta: Azul oscuro, Cyan y Carbono
+   ========================================================================== */
+
+/* Barra de Navegación Inferior Móvil (Bottom Navigation Bar) */
+.mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 45;
+    background-color: rgba(10, 16, 27, 0.96);
+    border-top: 1px solid rgba(0, 242, 254, 0.15);
+    backdrop-filter: blur(16px);
+    padding: 8px 12px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+}
+
+@media (max-width: 768px) {
+    .mobile-bottom-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    /* Espaciado para que el contenido no quede tapado por la barra inferior */
+    body {
+        padding-bottom: 72px;
+    }
+}
+
+/* Forzado cuando la plataforma móvil está activa por el conmutador de desarrollo */
+.platform-android .mobile-bottom-nav,
+.platform-ios .mobile-bottom-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.platform-android body,
+.platform-ios body {
+    padding-bottom: 72px;
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: color 0.2s;
+}
+
+.mobile-nav-item.active,
+.mobile-nav-item:hover {
+    color: #00F2FE;
+}
+
+.mobile-nav-item svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Ocultar elementos exclusivos de PC en modo móvil */
+.platform-android .pc-only,
+.platform-ios .pc-only {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .pc-only {
+        display: none !important;
+    }
+}

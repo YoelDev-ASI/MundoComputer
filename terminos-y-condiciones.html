@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones | Mundo Computer Web Bolivia</title>
+    <meta name="description" content="Términos y condiciones de compra, pedidos, métodos de pago y envíos nacionales en Mundo Computer Web Bolivia.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gamer: {
+                            negro: '#080808',
+                            carbon: '#111111',
+                            gris: '#1C1C1C',
+                            plata: '#B8B8B8',
+                            blanco: '#F2F2F2',
+                            cyan: '#00F2FE',
+                            blue: '#4FACFE',
+                            darkblue: '#0d1b2a',
+                            navy: '#1b263b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Estilos Modulares (PC & Móvil) -->
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="bg-gamer-negro text-gamer-blanco min-h-screen flex flex-col selection:bg-gamer-cyan selection:text-gamer-negro">
+
+    <!-- 1. ENCABEZADO PRINCIPAL (PC & TABLET) -->
+    <header class="pc-main-header sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+            <!-- Logo Oficial de Mundo Computer -->
+            <a href="index.html" class="flex items-center gap-3 flex-shrink-0 group">
+                <div class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105">
+                    <img src="images/logo.svg" alt="Mundo Computer Logo" class="w-full h-full object-contain">
+                </div>
+                <span class="text-base sm:text-xl font-black tracking-wider text-white">MUNDO COMPUTER</span>
+            </a>
+
+            <!-- BUSCADOR CENTRAL -->
+            <div class="hidden md:flex flex-grow justify-center pc-search-container header-search-wrapper relative">
+                <form action="categoria.html" method="GET" class="w-full pc-search-box">
+                    <input type="text" 
+                           name="q"
+                           placeholder="Buscar teclados, mouses, monitores, marcas..." 
+                           class="pc-search-input header-search-input"
+                           autocomplete="off">
+                    <button type="submit" class="pc-search-btn" title="Buscar">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+            <!-- ACCIÓN WHATSAPP -->
+            <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+                <a href="https://wa.me/59167735846" target="_blank" rel="noopener noreferrer" class="flex pc-action-btn" title="Atención directa por WhatsApp">
+                    <svg class="w-5 h-5 text-gamer-cyan fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.989 3.3 1.486 4.965 1.488 5.405-.001 9.805-4.4 9.808-9.81.002-2.62-1.018-5.086-2.87-6.938C16.638 2.04 14.17 1.018 11.55 1.017c-5.41 0-9.813 4.401-9.815 9.813-.001 1.958.51 3.827 1.484 5.445L2.2 21.8l5.63-1.476z"/>
+                    </svg>
+                    <span>Asesoría</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- BARRA SUBNAV -->
+        <nav class="pc-subnav hidden md:block">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <ul class="pc-subnav-list">
+                    <li><a href="index.html" class="pc-subnav-link">Inicio</a></li>
+                    <li><a href="categoria.html?cat=novedades" class="pc-subnav-link">Novedades</a></li>
+                    <li><a href="categoria.html?cat=keyboards" class="pc-subnav-link">Teclados</a></li>
+                    <li><a href="categoria.html?cat=accessories" class="pc-subnav-link">Accesorios Setup</a></li>
+                    <li><a href="categoria.html?cat=mice" class="pc-subnav-link">Mouses</a></li>
+                    <li><a href="categoria.html?cat=headsets" class="pc-subnav-link">Auriculares</a></li>
+                    <li><a href="categoria.html?cat=monitors" class="pc-subnav-link">Monitores</a></li>
+                    <li><a href="categoria.html" class="pc-subnav-link">Ver Todo</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <!-- BREADCRUMBS -->
+        <nav class="pc-breadcrumbs mb-6">
+            <a href="index.html">Inicio</a>
+            <span>/</span>
+            <span class="pc-breadcrumbs-active">Términos y Condiciones</span>
+        </nav>
+
+        <!-- HERO HEADER DE LA SECCIÓN LEGAL -->
+        <div class="bg-gradient-to-r from-gamer-carbon via-[#0d1624] to-gamer-carbon border border-gamer-gris rounded-3xl p-6 sm:p-10 mb-10 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-gamer-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="flex items-center gap-3 mb-3">
+                <span class="w-2.5 h-8 bg-gamer-cyan rounded-full"></span>
+                <span class="text-xs uppercase font-extrabold tracking-widest text-gamer-cyan">Marco Legal & Operativo</span>
+            </div>
+
+            <h1 class="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight mb-3">
+                Términos y Condiciones de Compra
+            </h1>
+            <p class="text-xs sm:text-sm text-gamer-plata leading-relaxed max-w-2xl mb-6">
+                Políticas de comercialización, pedidos, formas de pago seguras, envíos a nivel nacional y garantía de prueba de 7 días por falla de fábrica para compras en Mundo Computer Bolivia.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 text-xs font-bold text-gamer-plata">
+                <span class="inline-flex items-center bg-gamer-negro/80 border border-gamer-gris px-3.5 py-1.5 rounded-full text-white">
+                    Garantía de 7 Días (Falla de Fábrica)
+                </span>
+                <span class="inline-flex items-center bg-gamer-negro/80 border border-gamer-gris px-3.5 py-1.5 rounded-full text-white">
+                    Envíos a los 9 Departamentos
+                </span>
+                <span class="inline-flex items-center bg-gamer-negro/80 border border-gamer-gris px-3.5 py-1.5 rounded-full text-white">
+                    Pagos por QR Simple
+                </span>
+            </div>
+        </div>
+
+        <!-- CONTENIDO DETALLADO EN TARJETAS ESTRUCTURADAS -->
+        <div class="space-y-6">
+
+            <!-- ARTÍCULO 1: GENERALIDADES -->
+            <div class="bg-gamer-carbon/90 border border-gamer-gris rounded-2xl p-6 hover:border-gamer-plata/20 transition-colors">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-8 h-8 rounded-xl bg-gamer-negro text-white font-black flex items-center justify-center text-sm border border-gamer-gris">1</span>
+                    <h2 class="text-lg font-bold text-white uppercase tracking-wide">Ámbito de Aplicación e Identificación</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-gamer-plata leading-relaxed mb-3">
+                    El presente documento establece las condiciones que rigen las compras de productos, componentes y periféricos informáticos a través de la tienda web de <strong class="text-white">Mundo Computer</strong>. 
+                </p>
+                <p class="text-xs sm:text-sm text-gamer-plata leading-relaxed">
+                    Todas las transacciones y precios mostrados en el catálogo web están expresados en <strong class="text-white">Bolivianos (Bs.)</strong> e incluyen los términos aplicables para operaciones dentro del territorio del Estado Plurinacional de Bolivia.
+                </p>
+            </div>
+
+            <!-- ARTÍCULO 2: PEDIDOS Y CONFIRMACIÓN -->
+            <div class="bg-gamer-carbon/90 border border-gamer-gris rounded-2xl p-6 hover:border-gamer-plata/20 transition-colors">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-8 h-8 rounded-xl bg-gamer-negro text-white font-black flex items-center justify-center text-sm border border-gamer-gris">2</span>
+                    <h2 class="text-lg font-bold text-white uppercase tracking-wide">Proceso de Compra y Verificación de Stock</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-gamer-plata leading-relaxed mb-3">
+                    Los botones de compra directa o carrito generan un mensaje preconfigurado dirigido a nuestro canal oficial de WhatsApp (+591 67735846). Un asesor de Mundo Computer verificará en tiempo real la disponibilidad física del producto, el color solicitado y coordinará de forma personalizada los datos para la factura o recibo.
+                </p>
+                <div class="bg-gamer-negro/60 border border-gamer-gris rounded-xl p-3.5 text-xs text-gamer-plata">
+                    <span class="font-bold text-white">Nota importante:</span> El pedido se considera confirmado únicamente cuando se valida el comprobante de pago o se confirma el acuerdo de contra entrega con el cliente.
+                </div>
+            </div>
+
+            <!-- ARTÍCULO 3: MÉTODOS DE PAGO -->
+            <div class="bg-gamer-carbon/90 border border-gamer-gris rounded-2xl p-6 hover:border-gamer-plata/20 transition-colors">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-8 h-8 rounded-xl bg-gamer-negro text-white font-black flex items-center justify-center text-sm border border-gamer-gris">3</span>
+                    <h2 class="text-lg font-bold text-white uppercase tracking-wide">Métodos de Pago Autorizados</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-gamer-plata leading-relaxed mb-4">
+                    Para mayor seguridad y comodidad de nuestros clientes en todo el país, disponemos de las siguientes modalidades de pago:
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                    <div class="bg-gamer-negro/80 border border-gamer-gris rounded-xl p-3.5">
+                        <span class="font-bold text-white block mb-1">QR Simple Interbancario</span>
+                        <p class="text-gamer-plata">Transferencia instantánea desde cualquier app bancaria sin comisiones adicionales.</p>
+                    </div>
+                    <div class="bg-gamer-negro/80 border border-gamer-gris rounded-xl p-3.5">
+                        <span class="font-bold text-white block mb-1">Transferencia Bancaria</span>
+                        <p class="text-gamer-plata">Cuentas directas en BNB, Banco BCP, Mercantil Santa Cruz y Banco Unión.</p>
+                    </div>
+                    <div class="bg-gamer-negro/80 border border-gamer-gris rounded-xl p-3.5">
+                        <span class="font-bold text-white block mb-1">Pago Contra Entrega</span>
+                        <p class="text-gamer-plata">Disponible en entregas locales coordinadas en áreas urbanas autorizadas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ARTÍCULO 4: ENVÍOS NACIONALES -->
+            <div class="bg-gamer-carbon/90 border border-gamer-gris rounded-2xl p-6 hover:border-gamer-plata/20 transition-colors">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-8 h-8 rounded-xl bg-gamer-negro text-white font-black flex items-center justify-center text-sm border border-gamer-gris">4</span>
+                    <h2 class="text-lg font-bold text-white uppercase tracking-wide">Políticas de Envíos y Cobertura Nacional</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-gamer-plata leading-relaxed mb-3">
+                    Realizamos envíos diarios a los <strong class="text-white">9 departamentos de Bolivia</strong> (La Paz, Cochabamba, Santa Cruz, Sucre, Tarija, Oruro, Potosí, Beni y Pando) mediante empresas de encomienda reconocidas y con seguro de transporte.
+                </p>
+                <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-gamer-plata mb-3">
+                    <li><strong class="text-white">Tiempos de Despacho:</strong> Los pedidos confirmados antes de las 15:00 se despachan el mismo día hábil.</li>
+                    <li><strong class="text-white">Tiempos de Entrega:</strong> De 24 a 48 horas hábiles según la ciudad de destino.</li>
+                    <li><strong class="text-white">Rastreo de Carga:</strong> Al momento del despacho, se envía al cliente una fotografía del paquete y el código de guía para el retiro en terminal u oficina correspondiente.</li>
+                </ul>
+            </div>
+
+            <!-- ARTÍCULO 5: GARANTÍA LIMITADA DE 7 DÍAS POR DEFECTO DE FÁBRICA -->
+            <div class="bg-gamer-carbon/90 border border-gamer-gris rounded-2xl p-6 hover:border-gamer-plata/20 transition-colors">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-8 h-8 rounded-xl bg-gamer-negro text-white font-black flex items-center justify-center text-sm border border-gamer-gris">5</span>
+                    <h2 class="text-lg font-bold text-white uppercase tracking-wide">Garantía Limitada de 7 Días por Falla de Fábrica</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-gamer-plata leading-relaxed mb-3">
+                    Mundo Computer ofrece una <strong class="text-white">Garantía Limitada de 7 días calendario</strong> contados a partir de la fecha de recepción o retiro de la encomienda, orientada a respaldar el encendido y operatividad inicial de los productos.
+                </p>
+                <div class="bg-gamer-negro/70 border border-gamer-gris rounded-xl p-4 text-xs text-gamer-plata space-y-3 mb-4">
+                    <div>
+                        <span class="font-bold text-white uppercase tracking-wider block mb-1">Alcance Único:</span>
+                        <p>Cubre exclusivamente defectos de fabricación internos que impidan el encendido o funcionamiento operativo básico del equipo al momento de desembalar. En caso de dictamen favorable, se procederá al cambio por una unidad nueva idéntica.</p>
+                    </div>
+                    <div>
+                        <span class="font-bold text-white uppercase tracking-wider block mb-1">Requisitos Estrictos para Admisión del Reclamo:</span>
+                        <ul class="list-disc list-inside space-y-1 mt-1 text-gamer-plata">
+                            <li>Notificar dentro del plazo perentorio de 7 días continuos desde la entrega.</li>
+                            <li>Comprobante de compra o constancia de transacción oficial por WhatsApp.</li>
+                            <li>Empaque y caja original intactos, con todos sus manuales, plásticos, accesorios y precintos de fábrica sin roturas ni marcas.</li>
+                            <li>Evidencia en video continuo y sin cortes desde la apertura del paquete donde se visualice el número de serie, sello y la falla reportada.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border-t border-gamer-gris/60 pt-4">
+                    <h3 class="text-xs font-bold text-white uppercase tracking-wider mb-2">Exclusiones Estrictas y Anulación Inmediata:</h3>
+                    <p class="text-xs text-gamer-plata mb-3">La garantía queda automáticamente anulada y sin efecto legal bajo cualquiera de las siguientes causales:</p>
+                    <ul class="list-disc list-inside space-y-1.5 text-xs text-gamer-plata">
+                        <li><strong class="text-white">Daño físico o mecánico:</strong> Caídas, golpes, presiones indebidas, rayaduras, abolladuras o quebraduras externas o internas.</li>
+                        <li><strong class="text-white">Líquidos o suciedad:</strong> Derrames de agua, bebidas, humedad, corrosión o acumulación de polvo excesivo.</li>
+                        <li><strong class="text-white">Daño eléctrico:</strong> Quemaduras por sobretensión, variaciones de corriente, uso de cargadores/adaptadores no originales o puertos forzados.</li>
+                        <li><strong class="text-white">Desarme o manipulación:</strong> Sellos de seguridad violados, tornillos desajustados, cambio de firmware no oficial o desarme indebido de switches.</li>
+                        <li><strong class="text-white">Incompatibilidad de hardware del usuario:</strong> No se considera falla del producto si el equipo del cliente no cumple con los requerimientos técnicos necesarios.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ARTÍCULO 6: PROCEDIMIENTO DE EVALUACIÓN TÉCNICA Y POLÍTICA DE CAMBIO -->
+            <div class="bg-gamer-carbon/90 border border-gamer-gris rounded-2xl p-6 hover:border-gamer-plata/20 transition-colors">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-8 h-8 rounded-xl bg-gamer-negro text-white font-black flex items-center justify-center text-sm border border-gamer-gris">6</span>
+                    <h2 class="text-lg font-bold text-white uppercase tracking-wide">Evaluación Técnica Previa y Política de Sustitución</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-gamer-plata leading-relaxed mb-3">
+                    Todo producto devuelto por garantía ingresa a un <strong class="text-white">peritaje técnico diagnóstico de 24 a 48 horas</strong> antes de proceder a cualquier resolución:
+                </p>
+                <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-gamer-plata mb-3">
+                    <li><strong class="text-white">Gastos de Envío:</strong> Los costos de flete o encomienda para remitir el producto a evaluación técnica son cubiertos por el solicitante. Si la evaluación confirma defecto de fábrica, el reenvío de la unidad nueva es cubierto por la tienda.</li>
+                    <li><strong class="text-white">Anulación por Mal Uso:</strong> Si el peritaje técnico concluye que la falla fue ocasionada por golpe, sobretensión, humedad o manipulación forzada, la garantía se anula y el producto se devuelve al cliente previa cancelación del flete.</li>
+                    <li><strong class="text-white">Política de No Reembolso en Dinero:</strong> Existiendo disponibilidad de inventario para sustitución por una unidad nueva idéntica, no se efectuarán devoluciones en dinero en efectivo.</li>
+                </ul>
+                <div class="bg-gamer-negro/60 border border-gamer-gris rounded-xl p-3.5 text-xs text-gamer-plata">
+                    <span class="font-bold text-white">Caducidad Definitiva:</span> Una vez transcurrido el período de 7 días calendario sin reporte documentado, la venta se asume plenamente aceptada de conformidad y concluye todo derecho a reclamo posterior.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CALL TO ACTION DE CONTACTO -->
+        <div class="mt-12 bg-gradient-to-r from-gamer-carbon to-[#0e1624] border border-gamer-gris/80 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+                <h3 class="text-lg font-black text-white uppercase tracking-wide mb-1">¿Tienes preguntas sobre tu pedido?</h3>
+                <p class="text-xs text-gamer-plata">Nuestro equipo de soporte técnico y comercial está disponible para asesorarte de inmediato.</p>
+            </div>
+            <a href="https://wa.me/59167735846" target="_blank" rel="noopener noreferrer" class="bg-gamer-cyan hover:bg-gamer-blue text-gamer-negro font-black text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl transition-all whitespace-nowrap flex items-center gap-2">
+                <span>Contactar a Soporte</span>
+                &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER PROFESIONAL UNIFICADO -->
+    <footer class="bg-gamer-carbon border-t border-gamer-gris py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-3">
+                    <span class="text-base font-black tracking-wider text-white">MUNDO COMPUTER</span>
+                    <p class="text-xs text-gamer-plata leading-relaxed">
+                        Tienda líder en Bolivia en hardware de alto rendimiento, teclados mecánicos, mouses de esports y accesorios para setups gaming.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-3">Categorías</h4>
+                    <ul class="space-y-2 text-xs text-gamer-plata">
+                        <li><a href="categoria.html?cat=keyboards" class="hover:text-gamer-cyan transition-colors">Teclados Mecánicos</a></li>
+                        <li><a href="categoria.html?cat=accessories" class="hover:text-gamer-cyan transition-colors">Accesorios de Setup</a></li>
+                        <li><a href="categoria.html?cat=mice" class="hover:text-gamer-cyan transition-colors">Mouses Gaming</a></li>
+                        <li><a href="categoria.html?cat=novedades" class="hover:text-gamer-cyan transition-colors">Novedades y Lanzamientos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-3">Seguridad & Legal</h4>
+                    <ul class="space-y-2 text-xs text-gamer-plata">
+                        <li><a href="terminos-y-condiciones.html" class="text-gamer-cyan font-bold hover:underline">Términos y Condiciones</a></li>
+                        <li><a href="politicas-de-seguridad.html" class="hover:text-gamer-cyan transition-colors">Políticas de Seguridad</a></li>
+                        <li><span>Pagos por QR Simple</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-3">Contacto Directo</h4>
+                    <p class="text-xs text-gamer-plata mb-2">
+                        <a href="https://wa.me/59167735846" target="_blank" rel="noopener noreferrer" class="hover:text-gamer-cyan transition-colors">WhatsApp: +591 67735846</a>
+                    </p>
+                    <p class="text-xs text-gamer-plata mb-4">Atención de Lunes a Sábado de 09:00 a 19:30</p>
+
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-2.5">Síguenos</h4>
+                    <div class="flex items-center gap-3">
+                        <!-- Facebook -->
+                        <a href="https://facebook.com/mundocomputer" target="_blank" rel="noopener noreferrer" 
+                           class="w-9 h-9 rounded-xl bg-gamer-negro border border-gamer-gris hover:border-gamer-cyan text-gamer-plata hover:text-gamer-cyan flex items-center justify-center transition-all duration-300 group"
+                           title="Síguenos en Facebook" aria-label="Facebook">
+                            <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://instagram.com/mundocomputer" target="_blank" rel="noopener noreferrer" 
+                           class="w-9 h-9 rounded-xl bg-gamer-negro border border-gamer-gris hover:border-gamer-cyan text-gamer-plata hover:text-gamer-cyan flex items-center justify-center transition-all duration-300 group"
+                           title="Síguenos en Instagram" aria-label="Instagram">
+                            <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+
+                        <!-- TikTok -->
+                        <a href="https://tiktok.com/@mundocomputer" target="_blank" rel="noopener noreferrer" 
+                           class="w-9 h-9 rounded-xl bg-gamer-negro border border-gamer-gris hover:border-gamer-cyan text-gamer-plata hover:text-gamer-cyan flex items-center justify-center transition-all duration-300 group"
+                           title="Síguenos en TikTok" aria-label="TikTok">
+                            <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24">
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CINTILLO LEGAL INFERIOR -->
+            <div class="border-t border-gamer-gris/40 pt-6 text-xs text-gamer-plata">
+                <p>&copy; 2026 Mundo Computer Web. Todos los derechos reservados. Hardware & Gaming Store Bolivia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS MODULARES -->
+    <script src="js/products.js" charset="UTF-8"></script>
+    <script src="js/search.js"></script>
+    <script src="js/pc/pc-interactions.js"></script>
+    <script src="js/mobile/platform-detector.js"></script>
+    <script src="js/mobile/android-ui.js"></script>
+    <script src="js/mobile/ios-ui.js"></script>
+</body>
+</html>

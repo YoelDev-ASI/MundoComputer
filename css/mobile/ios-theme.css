@@ -1,0 +1,56 @@
+/* ==========================================================================
+   🍎 CONFIGURACIÓN DE UI: IOS (APPLE HUMAN INTERFACE GUIDELINES)
+   Archivo: css/mobile/ios-theme.css
+   ========================================================================== */
+
+/* Clases activadas bajo el selector .platform-ios */
+.platform-ios {
+    --ios-bg: #000000;
+    --ios-card: #1c1c1e;
+    --ios-separator: rgba(255, 255, 255, 0.12);
+}
+
+.platform-ios body {
+    background-color: var(--ios-bg);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Barra inferior estilo Cupertino con Frosted Glass */
+.platform-ios .mobile-bottom-nav {
+    background-color: rgba(22, 22, 24, 0.85);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    backdrop-filter: blur(25px) saturate(180%);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: max(14px, env(safe-area-inset-bottom));
+}
+
+.platform-ios .mobile-nav-item.active {
+    color: #0A84FF; /* Azul característico iOS */
+}
+
+/* Tarjetas redondeadas estilo iOS */
+.platform-ios .pc-product-card {
+    border-radius: 20px;
+    background-color: var(--ios-card);
+    border: 0.5px solid var(--ios-separator);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* Botones con esquinas redondeadas y tipografía limpia */
+.platform-ios .pc-btn-cart {
+    border-radius: 14px;
+    background-color: #2c2c2e;
+    border: none;
+    font-size: 12px;
+}
+
+.platform-ios .pc-btn-whatsapp {
+    border-radius: 14px;
+}
+
+/* Respeto estricto del notch y Dynamic Island de iPhone */
+.platform-ios header,
+.platform-ios .pc-main-header {
+    padding-top: env(safe-area-inset-top);
+}

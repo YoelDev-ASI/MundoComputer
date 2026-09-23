@@ -1,9 +1,27 @@
 /* ==========================================================================
-   MundoComputerWeb - Estilos Globales y Efectos Gaming
+   MUNDO COMPUTER WEB - HOJA DE ESTILOS PRINCIPAL
+   Paleta: Azules oscuros, Cyan espacial (#00F2FE), Azul (#4FACFE) y Carbono (#080808)
+   ==========================================================================
+   Estructura Modular:
+   - css/pc/     -> 🖥️ CONFIGURACIÓN DE UI PARA COMPUTADORA (PC)
+   - css/mobile/ -> 📱 CONFIGURACIÓN DE UI PARA ANDROID E IOS
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+/* 1. Fuentes Modernas de Alta Legibilidad */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* 2. Módulos de UI para PC (Desktop) */
+@import url('./pc/pc-header.css');
+@import url('./pc/pc-layout.css');
+@import url('./pc/pc-catalog.css');
+@import url('./product-zoom.css');
+
+/* 3. Módulos de UI para Dispositivos Móviles (Android & iOS) */
+@import url('./mobile/mobile-base.css');
+@import url('./mobile/android-theme.css');
+@import url('./mobile/ios-theme.css');
+
+/* Variables y Tokens Globales - Paleta Azul Oscura y Cyan */
 :root {
     --gamer-negro: #080808;
     --gamer-carbon: #111111;
@@ -12,47 +30,29 @@
     --gamer-blanco: #F2F2F2;
     --gamer-cyan: #00F2FE;
     --gamer-blue: #4FACFE;
+    --gamer-darkblue: #0d1b2a;
+    --gamer-navy: #1b263b;
+    --gamer-accent: #00F2FE;
 }
 
-html, body {
-    overflow-anchor: none;
-    overflow-x: hidden;
-    max-width: 100%;
-    width: 100%;
-}
-
-*,
-*::before,
-*::after {
-    overflow-anchor: none;
-    box-sizing: border-box;
-}
-
+html,
 body {
-    background-color: #080808;
-    color: #F2F2F2;
-    font-family: 'Outfit', 'Inter', sans-serif;
+    overflow-anchor: none;
     overflow-x: hidden;
     max-width: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
+    background-color: var(--gamer-negro);
+    color: var(--gamer-blanco);
+    font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
-    position: relative;
 }
 
-/* Prevenir auto-zoom molesto en iOS Safari al tocar inputs */
-@media screen and (max-width: 768px) {
-    input[type="text"],
-    select {
-        font-size: 16px !important;
-    }
-}
-
-/* Scroll suave con inercia para iOS/Android */
-.touch-scroll {
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 ::selection {
@@ -60,53 +60,62 @@ body {
     color: #080808;
 }
 
-/* Scrollbar personalizado Gaming */
+/* Barra de desplazamiento moderna y personalizada para la web (Chrome, Edge, Safari, Opera) */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 16px;
+    height: 16px;
 }
+
 ::-webkit-scrollbar-track {
     background: #080808;
 }
+
 ::-webkit-scrollbar-thumb {
-    background: #1C1C1C;
-    border-radius: 4px;
+    background: #2b3648;
+    border-radius: 9999px;
+    border: 3px solid #080808;
 }
+
 ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+::-webkit-scrollbar-thumb:active {
     background: #00F2FE;
 }
 
-/* Ocultar barra de scroll para contenedores con desplazamiento horizontal */
+/* Compatibilidad exclusiva para Firefox */
+@supports not selector(::-webkit-scrollbar) {
+    html {
+        scrollbar-width: auto;
+        scrollbar-color: #2b3648 #080808;
+    }
+}
+
+/* Ocultar barra de scroll en contenedores horizontales */
 .scrollbar-none::-webkit-scrollbar {
     display: none;
 }
+
 .scrollbar-none {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
-/* Efectos Glow sutiles para tarjetas y elementos tecnológicos */
+/* Sin efecto de brillo (color plano limpio) */
 .shadow-cyan-glow {
-    box-shadow: 0 0 25px rgba(0, 242, 254, 0.15);
+    box-shadow: none !important;
 }
 
-.shadow-cyan-glow-hover:hover {
-    box-shadow: 0 0 35px rgba(0, 242, 254, 0.35);
+.shadow-blue-glow {
+    box-shadow: none !important;
 }
 
-/* Fondos decorativos con gradientes galácticos difusos */
-.glow-bg {
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, rgba(79, 172, 254, 0.05) 50%, rgba(0,0,0,0) 70%);
-    filter: blur(50px);
-    pointer-events: none;
-    z-index: 0;
-}
+/* Prevenir auto-zoom en inputs móviles */
+@media screen and (max-width: 768px) {
 
-/* Smooth transitions */
-.transition-all {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+    input[type="text"],
+    select {
+        font-size: 16px !important;
+    }
 }

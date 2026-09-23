@@ -1,0 +1,191 @@
+/* ==========================================================================
+   🖥️ CONFIGURACIÓN DE UI: COMPUTADORA (PC / DESKTOP) - ENCABEZADO Y BUSCADOR
+   Archivo: css/pc/pc-header.css
+   Paleta: Azul oscuro, Cyan espacial y Carbono
+   ========================================================================== */
+
+/* Barra de Anuncios y Confianza Superior */
+.pc-topbar {
+    background-color: #060b14;
+    border-bottom: 1px solid rgba(0, 242, 254, 0.1);
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    color: #a3b3cc;
+}
+
+.pc-topbar-highlight {
+    color: #00F2FE;
+    font-weight: 700;
+}
+
+/* Encabezado Principal de Escritorio */
+.pc-main-header {
+    background-color: #0a0e17;
+    border-bottom: 1px solid rgba(0, 242, 254, 0.12);
+}
+
+/* Buscador Central Prominente para PC */
+.pc-search-container {
+    max-width: 680px;
+    width: 100%;
+}
+
+.pc-search-box {
+    display: flex;
+    align-items: center;
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 9999px;
+    padding: 3px 5px 3px 16px;
+    transition: all 0.25s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.pc-search-box:focus-within {
+    border-color: #00F2FE;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    background-color: #131d35;
+}
+
+.pc-category-select {
+    background: transparent;
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    border-right: 1px solid #1e293b;
+    padding-right: 12px;
+    margin-right: 12px;
+    outline: none;
+    cursor: pointer;
+}
+
+.pc-category-select option {
+    background-color: #0f172a;
+    color: #f1f5f9;
+}
+
+.pc-search-input {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f8fafc;
+    font-size: 13.5px;
+}
+
+.pc-search-input::placeholder {
+    color: #64748b;
+}
+
+.pc-search-btn {
+    background-color: #00F2FE;
+    color: #080808;
+    border: none;
+    border-radius: 9999px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: none;
+}
+
+.pc-search-btn:hover {
+    background-color: #4FACFE;
+    box-shadow: none;
+}
+
+/* Iconos de Acción del Encabezado (Cuenta, Carrito, Asesoría) */
+.pc-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #cbd5e1;
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.pc-action-btn:hover {
+    color: #00F2FE;
+    background-color: #131d35;
+}
+
+/* Sub-Barra de Navegación Horizontal (Categorías dedicadas) */
+.pc-subnav {
+    background-color: #090d16;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pc-subnav-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.pc-subnav-list::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.pc-subnav-link {
+    display: inline-block;
+    padding: 12px 2px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.pc-subnav-link:hover {
+    color: #00F2FE;
+}
+
+/* Línea indicadora activa en cyan plano */
+.pc-subnav-link.pc-nav-active,
+.pc-subnav-link.active {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.pc-subnav-link.pc-nav-active::after,
+.pc-subnav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #00F2FE;
+    border-radius: 3px 3px 0 0;
+    box-shadow: none;
+}
+
+/* Badge especial para Novedades */
+.pc-badge-new {
+    background-color: #00F2FE;
+    color: #080808;
+    font-size: 9px;
+    font-weight: 900;
+    padding: 2px 6px;
+    border-radius: 9999px;
+    margin-left: 4px;
+    vertical-align: middle;
+}
