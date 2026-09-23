@@ -14,10 +14,14 @@
     function initAndroidFeatures() {
         if (!document.documentElement.classList.contains('platform-android')) return;
 
-        // Efecto Ripple táctil Material 3
+        // Efecto Ripple táctil Material 3 (excluyendo tarjetas de producto)
         document.addEventListener('pointerdown', (e) => {
             if (!document.documentElement.classList.contains('platform-android')) return;
-            const target = e.target.closest('.android-ripple, button, .product-card, a');
+            
+            // Los productos nunca tienen efectos ni vibración
+            if (e.target.closest('.pc-product-card, .product-card, .pc-catalog-grid')) return;
+
+            const target = e.target.closest('.android-ripple, button, a');
             if (!target) return;
 
             const rect = target.getBoundingClientRect();
@@ -38,11 +42,6 @@
             setTimeout(() => {
                 ripple.remove();
             }, 600);
-
-            // Vibración háptica sutil
-            if (navigator.vibrate) {
-                try { navigator.vibrate(10); } catch (err) { }
-            }
         });
     }
 

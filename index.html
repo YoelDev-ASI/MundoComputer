@@ -177,7 +177,7 @@
             font-size: 15px !important;
         }
 
-        /* 📡 EFECTO RADAR AZUL Y VIBRACIÓN TÁCTIL EN EL PIE DE PÁGINA (ANDROID & IOS) */
+        /* 📡 RESPLANDOR SUAVE EN DEGRADÉ AZUL Y VIBRACIÓN TÁCTIL (ANDROID & IOS) */
         .footer-radar-pulse {
             position: absolute;
             pointer-events: none;
@@ -190,46 +190,27 @@
             justify-content: center;
         }
 
-        .radar-core {
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background-color: #00F2FE;
-            box-shadow: 0 0 15px #00F2FE, 0 0 35px #00F2FE;
-            animation: radar-core-fade 0.4s ease-out forwards;
-        }
-
-        .radar-wave-1 {
-            position: absolute;
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            border: 2px solid #00F2FE;
-            background: radial-gradient(circle, rgba(0, 242, 254, 0.35) 0%, rgba(0, 242, 254, 0.1) 45%, transparent 75%);
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.8), inset 0 0 25px rgba(0, 242, 254, 0.4);
-            animation: radar-wave-anim 0.65s cubic-bezier(0.1, 0.8, 0.25, 1) forwards;
-        }
-
-        .radar-wave-2 {
+        .footer-glow-bloom {
             position: absolute;
             width: 320px;
             height: 320px;
             border-radius: 50%;
-            border: 1.5px solid rgba(0, 242, 254, 0.7);
-            box-shadow: 0 0 35px rgba(0, 242, 254, 0.5);
-            animation: radar-wave-anim 0.75s cubic-bezier(0.1, 0.8, 0.25, 1) 0.08s forwards;
+            /* Degradé radial puro, sin líneas ni bordes */
+            background: radial-gradient(circle, rgba(0, 242, 254, 0.6) 0%, rgba(0, 160, 255, 0.3) 30%, rgba(0, 80, 220, 0.1) 55%, transparent 75%);
+            filter: blur(16px);
+            pointer-events: none;
+            animation: footer-bloom-anim 0.65s cubic-bezier(0.12, 0.8, 0.25, 1) forwards;
         }
 
-        @keyframes radar-core-fade {
-            0% { transform: scale(0.6); opacity: 1; }
-            100% { transform: scale(2.2); opacity: 0; }
-        }
-
-        @keyframes radar-wave-anim {
-            0% { transform: scale(0); opacity: 1; }
-            80% { opacity: 0.65; }
-            100% { transform: scale(1); opacity: 0; }
+        @keyframes footer-bloom-anim {
+            0% {
+                transform: scale(0.25);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.6);
+                opacity: 0;
+            }
         }
 
         /* Micro-vibración visual de la pantalla / pie de página */
@@ -698,64 +679,5 @@
             }
         }
     </script>
-
-    <!-- 📡 SCRIPT: RADAR AZUL Y VIBRACIÓN TÁCTIL EN EL PIE DE PÁGINA (ANDROID & IOS) -->
-    <script>
-        (function () {
-            const footer = document.querySelector('footer');
-            if (!footer) return;
-
-            footer.addEventListener('pointerdown', function (e) {
-                // Verificar si es dispositivo móvil o táctil (Android, iOS o pantalla móvil)
-                const isMobile = window.innerWidth <= 768 ||
-                    document.documentElement.classList.contains('platform-android') ||
-                    document.documentElement.classList.contains('platform-ios') ||
-                    e.pointerType === 'touch';
-
-                if (!isMobile) return;
-
-                const rect = footer.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                // Crear contenedor del pulso de radar
-                const pulse = document.createElement('div');
-                pulse.className = 'footer-radar-pulse';
-                pulse.style.left = `${x}px`;
-                pulse.style.top = `${y}px`;
-
-                // Ondas concéntricas de alta definición gamer
-                const core = document.createElement('span');
-                core.className = 'radar-core';
-                const wave1 = document.createElement('span');
-                wave1.className = 'radar-wave-1';
-                const wave2 = document.createElement('span');
-                wave2.className = 'radar-wave-2';
-
-                pulse.appendChild(core);
-                pulse.appendChild(wave1);
-                pulse.appendChild(wave2);
-                footer.appendChild(pulse);
-
-                // Disparar micro-vibración visual (simula el movimiento de pantalla)
-                footer.classList.remove('footer-vibrating');
-                void footer.offsetWidth; // Forzar reflow para reiniciar la animación
-                footer.classList.add('footer-vibrating');
-
-                // Disparar vibración física en el teléfono (Android / iOS con soporte háptico)
-                if (navigator.vibrate) {
-                    try {
-                        navigator.vibrate([15, 25, 20]);
-                    } catch (_) { }
-                }
-
-                // Limpiar el elemento DOM al terminar la animación
-                setTimeout(() => {
-                    pulse.remove();
-                }, 850);
-            }, { passive: true });
-        })();
-    </script>
 </body>
-
 </html>
