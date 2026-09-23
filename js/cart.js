@@ -119,7 +119,7 @@ class ShoppingCart {
         if (!toast) {
             toast = document.createElement('div');
             toast.id = 'mc-cart-toast';
-            toast.className = 'fixed bottom-6 right-6 z-50 bg-[#0c1322] border border-[#00F2FE]/40 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 max-w-sm sm:max-w-md';
+            toast.className = 'mc-cart-toast fixed bottom-20 left-4 right-4 mx-auto sm:bottom-6 sm:right-6 sm:left-auto sm:mx-0 z-50 bg-[#0c1322] border border-[#00F2FE]/40 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 w-[calc(100%-32px)] max-w-[360px] sm:w-auto sm:max-w-sm';
             toast.innerHTML = `
                 <div class="w-9 h-9 rounded-xl bg-[#00F2FE]/15 text-[#00F2FE] flex items-center justify-center flex-shrink-0">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">

@@ -173,3 +173,55 @@
     color: #ffffff;
     font-weight: 700;
 }
+
+/* ==========================================================================
+   🔔 NOTIFICACIÓN TOAST EN COMPUTADORA (PC / DESKTOP)
+   Fija exclusivamente en la esquina inferior derecha
+@media (min-width: 641px) {
+    .order-total-block {
+        text-align: right !important;
+        align-items: flex-end !important;
+        justify-content: center !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        width: auto !important;
+        max-width: none !important;
+        background: #070b13 !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+}
+
+@media (min-width: 769px) {
+    #mc-cart-toast,
+    .mc-cart-toast {
+        left: auto !important;
+        right: 24px !important;
+        bottom: 24px !important;
+        margin: 0 !important;
+        width: auto !important;
+        max-width: 384px !important;
+    }
+}
+
+.platform-pc #mc-cart-toast,
+.platform-pc .mc-cart-toast {
+    left: auto !important;
+    right: 24px !important;
+    bottom: 24px !important;
+    margin: 0 !important;
+    width: auto !important;
+    max-width: 384px !important;
+}
+
+.platform-pc .order-total-block {
+    text-align: right !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    background: #070b13 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+

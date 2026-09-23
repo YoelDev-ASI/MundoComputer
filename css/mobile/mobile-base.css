@@ -300,5 +300,64 @@
     pointer-events: none !important;
 }
 
+/* ==========================================================================
+   🔔 NOTIFICACIÓN TOAST DEL CARRITO (EXCLUSIVO ANDROID & IOS)
+   Centrado horizontal perfecto en pantalla y posicionado sobre la barra inferior
+   ========================================================================== */
+@media (max-width: 768px) {
+    #mc-cart-toast,
+    .mc-cart-toast {
+        left: 16px !important;
+        right: 16px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: calc(100% - 32px) !important;
+        max-width: 360px !important;
+        bottom: 84px !important; /* Flota cómodamente sobre la barra inferior móvil */
+    }
+}
+
+.platform-android #mc-cart-toast,
+.platform-ios #mc-cart-toast,
+.platform-android .mc-cart-toast,
+.platform-ios .mc-cart-toast {
+    left: 16px !important;
+    right: 16px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: calc(100% - 32px) !important;
+    max-width: 360px !important;
+    bottom: 84px !important;
+}
+
+/* ==========================================================================
+   🧾 DETALLE DE PEDIDO (pedido.html): CENTRADO EXCLUSIVO EN ANDROID & IOS
+   Centrado perfecto del bloque "Total a Pagar" con diseño equilibrado
+   ========================================================================== */
+@media (max-width: 640px) {
+    .order-total-block {
+        text-align: center !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+        max-width: 360px !important;
+        background: linear-gradient(180deg, #0d1728 0%, #070c16 100%) !important;
+        border: 1px solid rgba(0, 242, 254, 0.35) !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 242, 254, 0.05) !important;
+    }
+}
+
+.platform-android .order-total-block,
+.platform-ios .order-total-block {
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
 
 

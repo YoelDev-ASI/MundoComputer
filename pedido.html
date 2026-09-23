@@ -39,9 +39,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
+    <!-- Estilos Modulares (PC & Móvil) -->
+    <link rel="stylesheet" href="css/app.css">
+
     <style>
         body {
             font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
+        }
+
+        /* Centrado exclusivo para teléfonos móviles (Android e iOS) */
+        @media (max-width: 639px) {
+            .order-total-block {
+                text-align: center !important;
+                align-items: center !important;
+                justify-content: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                width: 100% !important;
+                max-width: 360px !important;
+            }
+        }
+        .platform-android .order-total-block,
+        .platform-ios .order-total-block {
+            text-align: center !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .platform-pc .order-total-block {
+            text-align: right !important;
+            align-items: flex-end !important;
+            margin-left: auto !important;
+            margin-right: 0 !important;
         }
 
         /* Estilos específicos para impresión / Guardar en PDF */
@@ -166,15 +196,28 @@
             </div>
 
             <!-- Resumen de Costos y Total -->
-            <div class="pt-6 border-t border-white/10 print-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-                <div class="text-xs text-gamer-plata print-text-muted space-y-1">
-                    <p><strong>Envíos:</strong> A coordinar con el cliente (todo Bolivia).</p>
-                    <p><strong>Método de Pago:</strong> QR Simple / Transferencia Bancaria.</p>
+            <div class="pt-6 border-t border-white/10 print-border flex flex-col sm:flex-row items-center sm:items-center justify-between gap-6">
+                <div class="text-xs text-gamer-plata print-text-muted space-y-1.5 text-center sm:text-left w-full sm:w-auto bg-white/[0.02] sm:bg-transparent p-3 sm:p-0 rounded-2xl sm:rounded-none border border-white/5 sm:border-0">
+                    <p class="flex items-center justify-center sm:justify-start gap-1.5 font-medium">
+                        <span class="text-gamer-cyan font-bold">✓</span> <strong>Envíos:</strong> A coordinar con el cliente (todo Bolivia).
+                    </p>
+                    <p class="flex items-center justify-center sm:justify-start gap-1.5 font-medium">
+                        <span class="text-gamer-cyan font-bold">✓</span> <strong>Método de Pago:</strong> QR Simple / Transferencia Bancaria.
+                    </p>
                 </div>
 
-                <div class="w-full sm:w-auto bg-[#070b13] print-border border border-white/10 rounded-2xl p-4 sm:p-5 text-right min-w-[220px]">
-                    <span class="text-xs uppercase font-extrabold tracking-wider text-gray-400 print-text-muted block mb-1">Total a Pagar</span>
-                    <span class="text-2xl sm:text-3xl font-black text-gamer-cyan print-text-dark" x-text="'Bs. ' + Number(order.total).toLocaleString('es-BO')"></span>
+                <!-- Bloque de Total a Pagar: Centrado en Android e iOS, alineado a la derecha en PC -->
+                <div class="order-total-block w-full max-w-sm sm:max-w-none sm:w-auto mx-auto sm:mx-0 bg-gradient-to-b from-[#0e1728] to-[#070b13] sm:bg-[#070b13] print-border border border-gamer-cyan/30 sm:border-white/10 rounded-2xl p-5 text-center sm:text-right flex flex-col items-center sm:items-end justify-center shadow-xl">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gamer-cyan/15 border border-gamer-cyan/30 text-gamer-cyan text-[11px] font-black uppercase tracking-wider mb-2">
+                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span>Total a Pagar</span>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-black text-gamer-cyan print-text-dark tracking-tight">
+                        <span x-text="'Bs. ' + Number(order.total).toLocaleString('es-BO')"></span>
+                    </div>
+                    <span class="text-[11px] text-gray-400 print-text-muted font-medium mt-1">Cotización Oficial &bull; Sin cargos sorpresa</span>
                 </div>
             </div>
 
@@ -344,5 +387,7 @@
             }
         }
     </script>
+    <!-- Detector de Plataforma para Android, iOS y PC -->
+    <script src="js/mobile/platform-detector.js"></script>
 </body>
 </html>
