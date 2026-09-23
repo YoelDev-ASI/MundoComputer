@@ -188,17 +188,44 @@ class ShoppingCart {
     }
 
     /**
-     * Obtiene la URL completa del ticket digital (pedido.html)
+     * Algoritmo de Compresión de Catálogo:
+     * Genera una cadena ultra-corta de IDs y cantidades (ej. "kb-02.1" o "kb-01.2.1_mouse-01.1")
+     */
+    getCompactOrderParam() {
+        if (!this.items || this.items.length === 0) return '';
+        const allProducts = window.PRODUCTS || [];
+        const tokens = this.items.map(item => {
+            let token = `${item.id}.${item.quantity}`;
+            const prod = allProducts.find(p => p.id === item.id);
+            if (prod && item.color) {
+                const colors = prod.colors || [];
+                const colorIdx = colors.findIndex(c => c.name === item.color);
+                if (colorIdx > 0) {
+                    token += `.${colorIdx}`;
+                } else if (colorIdx === -1) {
+                    token += `.${encodeURIComponent(item.color)}`;
+                }
+            }
+            return token;
+        });
+        return tokens.join('_');
+    }
+
+    /**
+     * Obtiene la URL completa del ticket digital (pedido.html) en formato ultra-corto
      */
     getDigitalOrderUrl(orderId) {
-        const encodedData = this.serializeOrderPayload(orderId);
+        // Guardamos en localStorage para respaldo local
+        this.serializeOrderPayload(orderId);
+
+        const compactParam = this.getCompactOrderParam();
         let baseUrl = 'https://mundocomputer.com/pedido.html';
         if (typeof window !== 'undefined' && window.location && window.location.protocol && window.location.protocol.startsWith('http')) {
             const origin = window.location.origin;
             const basePath = window.location.pathname.replace(/\/[^\/]*$/, '');
             baseUrl = `${origin}${basePath}/pedido.html`;
         }
-        return `${baseUrl}?id=${orderId}&d=${encodedData}`;
+        return `${baseUrl}?id=${orderId}&p=${compactParam}`;
     }
 
     /**

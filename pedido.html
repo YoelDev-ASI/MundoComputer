@@ -203,6 +203,9 @@
         <p>&copy; 2026 Mundo Computer Web. Todos los derechos reservados. Hardware & Gaming Store Bolivia.</p>
     </footer>
 
+    <!-- Catálogo de productos para reconstrucción compacta ultra-rápida -->
+    <script src="js/products.js" charset="UTF-8"></script>
+
     <script>
         function orderView() {
             return {
@@ -217,9 +220,59 @@
                 init() {
                     const params = new URLSearchParams(window.location.search);
                     const orderId = params.get('id');
+                    const compactParam = params.get('p');
                     const encodedData = params.get('d') || params.get('order');
 
-                    if (encodedData) {
+                    // 1. Decodificación Ultra-Corta de Catálogo (?p=kb-02.1_mouse-01.2)
+                    if (compactParam && window.PRODUCTS) {
+                        try {
+                            const tokens = compactParam.split('_');
+                            const items = [];
+                            tokens.forEach(token => {
+                                const parts = token.split('.');
+                                const id = parts[0];
+                                const qty = parseInt(parts[1], 10) || 1;
+                                const colorPart = parts[2];
+                                const prod = window.PRODUCTS.find(p => p.id === id);
+                                if (prod) {
+                                    let colorName = null;
+                                    if (colorPart !== undefined) {
+                                        const colorIdx = parseInt(colorPart, 10);
+                                        if (!isNaN(colorIdx) && prod.colors && prod.colors[colorIdx]) {
+                                            colorName = prod.colors[colorIdx].name;
+                                        } else {
+                                            colorName = decodeURIComponent(colorPart);
+                                        }
+                                    } else if (prod.colors && prod.colors.length > 0) {
+                                        colorName = prod.colors[0].name;
+                                    }
+                                    items.push({
+                                        id: prod.id,
+                                        name: prod.name,
+                                        brand: prod.brand || '',
+                                        color: colorName,
+                                        price: Number(prod.price),
+                                        qty: qty,
+                                        img: prod.image_url
+                                    });
+                                }
+                            });
+
+                            if (items.length > 0) {
+                                this.order = {
+                                    id: orderId || 'MC-1042',
+                                    date: new Date().toISOString(),
+                                    total: items.reduce((acc, curr) => acc + (curr.price * curr.qty), 0),
+                                    items: items
+                                };
+                            }
+                        } catch (err) {
+                            console.warn('Error decodificando parámetro compacto:', err);
+                        }
+                    }
+
+                    // 2. Soporte para enlaces heredados codificados en Base64 (?d=...)
+                    if ((!this.order.items || this.order.items.length === 0) && encodedData) {
                         try {
                             const decodedStr = decodeURIComponent(escape(atob(decodeURIComponent(encodedData))));
                             this.order = JSON.parse(decodedStr);
