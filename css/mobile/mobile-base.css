@@ -225,3 +225,65 @@
     75% { transform: translateY(-0.8px); }
     100% { transform: translateY(0); }
 }
+
+/* ==========================================================================
+   📱 MENÚ LATERAL DESPLEGABLE (OFF-CANVAS DRAWER) - ESTILO MATE PROFESIONAL
+   ========================================================================== */
+#mobile-drawer {
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+#drawer-backdrop {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+#drawer-panel {
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.6);
+    padding-top: max(0px, env(safe-area-inset-top));
+}
+
+.drawer-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #e2e8f0;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.drawer-nav-link:hover,
+.drawer-nav-link:active {
+    background-color: #131d33;
+    color: #ffffff;
+}
+
+.drawer-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #070b12;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.drawer-sublink {
+    display: block;
+    padding: 10px 20px 10px 36px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.drawer-sublink:hover,
+.drawer-sublink:active {
+    color: #00F2FE;
+    background-color: #0d1524;
+}
+

@@ -233,20 +233,96 @@
     x-data="homePage()">
 
 
-    <!-- 2. ENCABEZADO PRINCIPAL CON BUSCADOR SUPERIOR (PC) -->
-    <header class="pc-main-header sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+    <!-- MENÚ LATERAL DESPLEGABLE (OFF-CANVAS DRAWER) -->
+    <div id="mobile-drawer" class="fixed inset-0 z-50 pointer-events-none invisible" aria-hidden="true" role="dialog" aria-modal="true">
+        <!-- Fondo oscuro difuminado (Backdrop) -->
+        <div id="drawer-backdrop" class="fixed inset-0 bg-black/75 opacity-0 transition-opacity duration-300"></div>
 
-            <!-- Logo Oficial de Mundo Computer -->
-            <a href="index.html" class="flex items-center gap-3 flex-shrink-0 group">
-                <div
-                    class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105">
-                    <img src="images/logo.svg" alt="Mundo Computer Logo" class="w-full h-full object-contain">
+        <!-- Panel lateral deslizante -->
+        <div id="drawer-panel" class="fixed top-0 bottom-0 left-0 w-72 max-w-[85vw] bg-[#0a0e17] border-r border-[#1e293b] flex flex-col transform -translate-x-full transition-transform duration-300 ease-out z-10">
+            <!-- Cabecera del Drawer -->
+            <div class="p-4 border-b border-[#1e293b] flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 flex items-center justify-center">
+                        <img src="images/logo.svg" alt="Mundo Computer" class="w-full h-full object-contain">
+                    </div>
                 </div>
-                <span class="text-base sm:text-xl font-black tracking-wider text-white">MUNDO COMPUTER</span>
-            </a>
+                <button id="close-drawer-btn" class="p-1.5 text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-colors" aria-label="Cerrar menú">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
 
-            <!-- BUSCADOR CENTRAL PROMINENTE -->
+            <!-- Navegación del Drawer -->
+            <nav class="flex-1 overflow-y-auto py-2">
+                <!-- 1. Inicio -->
+                <a href="index.html" class="drawer-nav-link">
+                    <span>Inicio</span>
+                </a>
+
+                <!-- 2. Ver Catálogo (Acordeón con flecha) -->
+                <div>
+                    <button id="catalog-accordion-toggle" class="drawer-nav-link" aria-expanded="false">
+                        <span>Ver Catálogo</span>
+                        <svg id="catalog-accordion-arrow" class="w-4 h-4 text-gray-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    <div id="catalog-submenu" class="drawer-submenu">
+                        <a href="categoria.html" class="drawer-sublink">Ver todo</a>
+                        <a href="categoria.html?cat=keyboards" class="drawer-sublink">Teclados</a>
+                        <a href="categoria.html?cat=mice" class="drawer-sublink">Mouses</a>
+                        <a href="categoria.html?cat=headsets" class="drawer-sublink">Auriculares</a>
+                        <a href="categoria.html?cat=accessories" class="drawer-sublink">Accesorios</a>
+                        <a href="categoria.html?cat=monitors" class="drawer-sublink">Monitores</a>
+                    </div>
+                </div>
+
+                <!-- 3. Ofertas -->
+                <a href="categoria.html?cat=ofertas" class="drawer-nav-link">
+                    <span>Ofertas</span>
+                </a>
+
+                <!-- 4. Novedades -->
+                <a href="categoria.html?cat=novedades" class="drawer-nav-link">
+                    <span>Novedades</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- 2. ENCABEZADO PRINCIPAL CON BUSCADOR SUPERIOR -->
+    <header class="pc-main-header sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-2 sm:gap-4">
+
+            <!-- Lado Izquierdo: Botón Menú 3 Barras + Logo (en PC) -->
+            <div class="flex items-center gap-3 flex-shrink-0">
+                <!-- Botón 3 Barras (Menú Hamburguesa) -->
+                <button id="mobile-menu-btn" class="header-menu-btn" aria-label="Abrir menú de navegación" title="Menú">
+                    <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+
+                <!-- Logo en PC (visible solo en md y superior) -->
+                <a href="index.html" class="hidden md:flex items-center justify-center flex-shrink-0 group" title="Mundo Computer">
+                    <div class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105">
+                        <img src="images/logo.svg" alt="Mundo Computer Logo" class="w-full h-full object-contain">
+                    </div>
+                </a>
+            </div>
+
+            <!-- Centro en Móvil: Logo Oficial Centrado (Solo Emblema, sin texto) -->
+            <div class="flex md:hidden items-center justify-center flex-1">
+                <a href="index.html" class="flex items-center justify-center group" title="Mundo Computer">
+                    <div class="w-10 h-10 flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105">
+                        <img src="images/logo.svg" alt="Mundo Computer Logo" class="w-full h-full object-contain">
+                    </div>
+                </a>
+            </div>
+
+            <!-- BUSCADOR CENTRAL PROMINENTE (PC) -->
             <div class="hidden md:flex flex-grow justify-center pc-search-container header-search-wrapper relative">
                 <form class="w-full pc-search-box">
                     <input type="text" placeholder="Buscar teclados mecánicos, mouses, accesorios, marcas..."
@@ -260,17 +336,36 @@
                 </form>
             </div>
 
-            <!-- ACCIONES: CONTACTO WHATSAPP DIRECTO -->
-            <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-                <a href="https://wa.me/59167735846" target="_blank" class="flex pc-action-btn"
-                    title="Atención directa por WhatsApp">
-                    <svg class="w-5 h-5 text-gamer-cyan fill-current" viewBox="0 0 24 24">
-                        <path
-                            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.989 3.3 1.486 4.965 1.488 5.405-.001 9.805-4.4 9.808-9.81.002-2.62-1.018-5.086-2.87-6.938C16.638 2.04 14.17 1.018 11.55 1.017c-5.41 0-9.813 4.401-9.815 9.813-.001 1.958.51 3.827 1.484 5.445L2.2 21.8l5.63-1.476z" />
+            <!-- ACCIONES DERECHA: Búsqueda rápida (móvil) + Carrito de Compras (PC & Móvil) -->
+            <div class="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                <!-- Botón Lupa en Móvil -->
+                <button id="mobile-search-toggle" class="header-search-toggle-btn md:hidden" aria-label="Buscar productos" title="Buscar">
+                    <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
-                    <span>Asesoría</span>
-                </a>
+                </button>
+
+                <!-- Botón Carrito de Compras Multiplataforma (Reemplazo de Asesoría) -->
+                <button id="header-cart-btn" class="header-cart-btn" aria-label="Carrito de compras" title="Carrito de compras">
+                    <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span class="cart-count-badge" style="display:none;">0</span>
+                </button>
             </div>
+        </div>
+
+        <!-- Barra de búsqueda expandible en móvil -->
+        <div id="mobile-search-bar" class="hidden md:hidden px-4 pb-3 pt-1 border-t border-white/5 header-search-wrapper relative">
+            <form class="w-full pc-search-box">
+                <input type="text" placeholder="Buscar periféricos, marcas..." class="pc-search-input header-search-input" autocomplete="off">
+                <button type="submit" class="pc-search-btn" title="Buscar">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </form>
         </div>
 
         <!-- 3. BARRA DE NAVEGACIÓN SECUNDARIA (SUBNAV DE ESCRITORIO CON ENLACES A PÁGINAS DEDICADAS) -->
@@ -657,7 +752,9 @@
 
     <!-- SCRIPTS MODULARES -->
     <script src="js/products.js" charset="UTF-8"></script>
+    <script src="js/cart.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/mobile/mobile-drawer.js"></script>
     <script src="js/pc/pc-interactions.js"></script>
     <script src="js/mobile/platform-detector.js"></script>
     <script src="js/mobile/android-ui.js"></script>

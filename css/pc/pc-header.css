@@ -98,7 +98,65 @@
     box-shadow: none;
 }
 
-/* Iconos de Acción del Encabezado (Cuenta, Carrito, Asesoría) */
+/* Iconos y Botones de Acción del Encabezado (Carrito, Menú, Búsqueda) */
+.header-menu-btn,
+.header-search-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.header-menu-btn:hover,
+.header-search-toggle-btn:hover {
+    color: #00F2FE;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.header-cart-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.header-cart-btn:hover {
+    color: #00F2FE;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.header-cart-btn .cart-count-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    border-radius: 9999px;
+    background-color: #00F2FE;
+    color: #080808;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
 .pc-action-btn {
     display: flex;
     align-items: center;
