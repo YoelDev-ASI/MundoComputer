@@ -287,3 +287,18 @@
     background-color: #0d1524;
 }
 
+/* Ocultar lupa de producto únicamente en teléfonos móviles (Android e iOS) */
+@media (max-width: 768px) {
+    .product-zoom-btn {
+        display: none !important;
+        pointer-events: none !important;
+    }
+}
+.platform-android .product-zoom-btn,
+.platform-ios .product-zoom-btn {
+    display: none !important;
+    pointer-events: none !important;
+}
+
+
+

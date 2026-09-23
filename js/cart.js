@@ -1,7 +1,7 @@
 /**
  * =============================================================================
- * MUNDO COMPUTER WEB - GESTOR DE CARRITO DE COMPRAS INTERACTIVO
- * Persistencia en LocalStorage y checkout directo a WhatsApp
+ * MUNDO COMPUTER WEB - GESTOR DE CARRITO DE COMPRAS INTERACTIVO (Multi-Producto)
+ * Persistencia en LocalStorage, Ticket Digital (pedido.html) y Checkout WhatsApp
  * =============================================================================
  */
 
@@ -32,22 +32,26 @@ class ShoppingCart {
     }
 
     addItem(product, quantity = 1, selectedColor = null) {
+        if (!product) return;
         const colorName = selectedColor || (product.colors && product.colors.length > 0 ? product.colors[0].name : null);
         const existingIndex = this.items.findIndex(
             item => item.id === product.id && item.color === colorName
         );
 
+        const qty = Math.max(1, parseInt(quantity, 10) || 1);
+
         if (existingIndex > -1) {
-            this.items[existingIndex].quantity += quantity;
+            this.items[existingIndex].quantity += qty;
         } else {
             this.items.push({
                 id: product.id,
                 name: product.name,
+                brand: product.brand || '',
                 slug: product.slug,
                 price: Number(product.price),
                 image_url: product.image_url,
                 color: colorName,
-                quantity: quantity
+                quantity: qty
             });
         }
 
@@ -57,21 +61,24 @@ class ShoppingCart {
 
     removeItem(id, color = null) {
         this.items = this.items.filter(
-            item => !(item.id === id && item.color === color)
+            item => !(item.id === id && (item.color || null) === (color || null))
         );
         this.saveCart();
     }
 
     updateQuantity(id, color, delta) {
-        const item = this.items.find(i => i.id === id && i.color === color);
+        const item = this.items.find(
+            i => i.id === id && (i.color || null) === (color || null)
+        );
         if (!item) return;
 
-        item.quantity += delta;
-        if (item.quantity <= 0) {
-            this.removeItem(id, color);
+        const newQty = item.quantity + delta;
+        if (newQty < 1) {
+            item.quantity = 1;
         } else {
-            this.saveCart();
+            item.quantity = newQty;
         }
+        this.saveCart();
     }
 
     clearCart() {
@@ -88,7 +95,9 @@ class ShoppingCart {
     }
 
     subscribe(callback) {
-        this.listeners.push(callback);
+        if (typeof callback === 'function') {
+            this.listeners.push(callback);
+        }
     }
 
     notify() {
@@ -110,14 +119,20 @@ class ShoppingCart {
         if (!toast) {
             toast = document.createElement('div');
             toast.id = 'mc-cart-toast';
-            toast.className = 'fixed bottom-6 right-6 z-50 bg-gamer-carbon border border-gamer-cyan text-gamer-blanco px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none';
+            toast.className = 'fixed bottom-6 right-6 z-50 bg-[#0c1322] border border-[#00F2FE]/40 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 max-w-sm sm:max-w-md';
             toast.innerHTML = `
-                <div class="w-8 h-8 rounded-xl bg-gamer-cyan/20 text-gamer-cyan flex items-center justify-center flex-shrink-0">
+                <div class="w-9 h-9 rounded-xl bg-[#00F2FE]/15 text-[#00F2FE] flex items-center justify-center flex-shrink-0">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                     </svg>
                 </div>
-                <span id="mc-cart-toast-text" class="text-xs sm:text-sm font-semibold"></span>
+                <div class="flex-1 min-w-0">
+                    <p id="mc-cart-toast-text" class="text-xs sm:text-sm font-semibold truncate"></p>
+                    <a href="carrito.html" class="text-[11px] text-[#00F2FE] hover:underline font-bold inline-flex items-center gap-1 mt-0.5">
+                        Ver Carrito &rarr;
+                    </a>
+                </div>
+                <button type="button" onclick="this.parentElement.classList.add('translate-y-20','opacity-0')" class="text-gray-400 hover:text-white p-1 text-sm">✕</button>
             `;
             document.body.appendChild(toast);
         }
@@ -132,31 +147,92 @@ class ShoppingCart {
         this.toastTimeout = setTimeout(() => {
             toast.classList.add('translate-y-20', 'opacity-0');
             toast.classList.remove('translate-y-0', 'opacity-100');
-        }, 3000);
+        }, 3500);
     }
 
-    getWhatsAppCheckoutUrl() {
+    /**
+     * Genera un código de pedido único tipo MC-1042
+     */
+    generateOrderId() {
+        const rand = Math.floor(1000 + Math.random() * 9000);
+        return `MC-${rand}`;
+    }
+
+    /**
+     * Empaqueta el pedido en formato serializado seguro para URL
+     */
+    serializeOrderPayload(orderId) {
+        const payload = {
+            id: orderId,
+            date: new Date().toISOString(),
+            total: this.getTotalPrice(),
+            items: this.items.map(item => ({
+                id: item.id,
+                name: item.name,
+                brand: item.brand,
+                color: item.color,
+                price: item.price,
+                qty: item.quantity,
+                img: item.image_url
+            }))
+        };
+        try {
+            localStorage.setItem('mundo_computer_last_order', JSON.stringify(payload));
+        } catch (e) {}
+
+        try {
+            return encodeURIComponent(btoa(unescape(encodeURIComponent(JSON.stringify(payload)))));
+        } catch (e) {
+            return encodeURIComponent(JSON.stringify(payload));
+        }
+    }
+
+    /**
+     * Obtiene la URL completa del ticket digital (pedido.html)
+     */
+    getDigitalOrderUrl(orderId) {
+        const encodedData = this.serializeOrderPayload(orderId);
+        let baseUrl = 'https://mundocomputer.com/pedido.html';
+        if (typeof window !== 'undefined' && window.location && window.location.protocol && window.location.protocol.startsWith('http')) {
+            const origin = window.location.origin;
+            const basePath = window.location.pathname.replace(/\/[^\/]*$/, '');
+            baseUrl = `${origin}${basePath}/pedido.html`;
+        }
+        return `${baseUrl}?id=${orderId}&d=${encodedData}`;
+    }
+
+    /**
+     * Genera el enlace de WhatsApp con el mensaje simple y limpio solicitado por el usuario:
+     * Hola Mundo Computer 👋
+     * Quisiera coordinar el pago de mi pedido:
+     * 👉 *Ver Detalle de mi Pedido:* [URL]
+     * 💰 *Total: Bs. [TOTAL]*
+     */
+    getWhatsAppSimpleCheckoutUrl(customOrderId = null) {
         if (this.items.length === 0) return '#';
 
         const phone = (window.SHOP_CONFIG && window.SHOP_CONFIG.whatsappPhone) || '59167735846';
-        let text = `Hola, Mundo Computer \u{1F44B}\n\nQuisiera realizar el pedido de los siguientes productos desde la tienda web:\n\n`;
+        const orderId = customOrderId || this.generateOrderId();
+        const orderUrl = this.getDigitalOrderUrl(orderId);
+        const totalFormatted = this.getTotalPrice().toLocaleString('es-BO');
 
-        this.items.forEach((item, index) => {
-            const colorStr = item.color ? ` (Color: ${item.color})` : '';
-            const subtotal = item.price * item.quantity;
-            text += `${index + 1}. *${item.name}*${colorStr}\n   Cantidad: ${item.quantity} | Unitario: Bs. ${item.price.toLocaleString('es-BO')} | Subtotal: Bs. ${subtotal.toLocaleString('es-BO')}\n`;
-        });
+        const message = `Hola Mundo Computer 👋\nQuisiera coordinar el pago de mi pedido:\n👉 *Ver Detalle de mi Pedido:* ${orderUrl}\n💰 *Total: Bs. ${totalFormatted}*`;
 
-        text += `\n*TOTAL DEL PEDIDO: Bs. ${this.getTotalPrice().toLocaleString('es-BO')}*\n`;
-        text += `\n*Ciudad / Departamento para el envío:* [Escribe tu ciudad aquí]\n`;
-        text += `\n¿Tienen disponible para coordinar el pago y el despacho? Muchas gracias.`;
-
-        return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+        return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     }
 }
 
 // Inicializar globalmente
 window.MundoCart = new ShoppingCart();
+
 document.addEventListener('DOMContentLoaded', () => {
     window.MundoCart.updateBadges();
+
+    // Redirección directa al carrito al pulsar el icono del carrito en el header
+    document.querySelectorAll('#header-cart-btn, .mobile-cart-btn-trigger').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = 'carrito.html';
+        });
+    });
 });

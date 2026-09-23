@@ -65,10 +65,15 @@
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     color: #f1f5f9;
-    cursor: pointer;
+    cursor: pointer !important;
+    pointer-events: auto !important;
     transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     padding: 0;
+}
+
+.product-zoom-btn * {
+    pointer-events: none;
 }
 
 .product-zoom-btn:hover {
@@ -80,16 +85,16 @@
 
 /* Estado ACTIVO del Botón: fondo sólido cyan, sin brillo difuso */
 .product-zoom-btn.is-active {
-    background: #00F2FE;
-    color: #050811;
-    border-color: #00F2FE;
+    background: #00F2FE !important;
+    color: #050811 !important;
+    border-color: #00F2FE !important;
     transform: scale(1.06);
 }
 
 .product-zoom-btn.is-active:hover {
-    background: #38bdf8;
-    border-color: #38bdf8;
-    color: #050811;
+    background: #38bdf8 !important;
+    border-color: #38bdf8 !important;
+    color: #050811 !important;
 }
 
 /* Ícono de la Lupa Agrandado */
@@ -103,3 +108,37 @@
 .zoom-status-badge {
     display: none !important;
 }
+
+/* ==========================================================================
+   📱💻 VISIBILIDAD POR DISPOSITIVO: SOLO PC (DESKTOP)
+   En Android e iOS (teléfonos móviles sin mouse/cursor), la lupa se oculta
+   y se desactiva por completo para evitar interferir con el scroll táctil.
+   En PC (Escritorio) se mantiene visible y funcional al 100%.
+   ========================================================================== */
+@media (min-width: 769px) {
+    .product-zoom-btn {
+        display: flex !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+    }
+}
+
+.platform-pc .product-zoom-btn {
+    display: flex !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+@media (max-width: 768px) {
+    .product-zoom-btn {
+        display: none !important;
+        pointer-events: none !important;
+    }
+}
+
+.platform-android .product-zoom-btn,
+.platform-ios .product-zoom-btn {
+    display: none !important;
+    pointer-events: none !important;
+}
+
