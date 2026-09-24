@@ -288,7 +288,7 @@
         width: 100% !important;
         max-width: 360px !important;
         background: #070b13 !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border: none !important;
         box-shadow: none !important;
     }
 }

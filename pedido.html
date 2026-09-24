@@ -113,11 +113,11 @@
         
         <!-- Barra de Acciones Superior (Oculta al Imprimir) -->
         <div class="no-print flex items-center justify-between mb-6 gap-3 flex-wrap">
-            <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold text-gamer-plata hover:text-gamer-cyan transition-colors bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl border border-white/10">
+            <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold text-gamer-plata hover:text-gamer-cyan transition-colors bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl">
                 <span>&larr; Volver a la Tienda</span>
             </a>
             <div class="flex items-center gap-2">
-                <button type="button" onclick="window.print()" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-[#0e1626] hover:bg-[#16233b] border border-gamer-cyan/40 hover:border-gamer-cyan px-4 py-2 rounded-xl transition-all shadow-md">
+                <button type="button" onclick="window.print()" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-[#0e1626] hover:bg-[#16233b] px-4 py-2 rounded-xl transition-all shadow-md">
                     <svg class="w-4 h-4 text-gamer-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
                     </svg>
@@ -130,14 +130,12 @@
         </div>
 
         <!-- TARJETA DEL TICKET DIGITAL -->
-        <div class="print-card bg-[#0b101b] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+        <div class="print-card bg-[#0b101b] rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
             
             <!-- Encabezado del Ticket -->
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-8 border-b border-white/10 print-border">
                 <div class="flex items-center gap-3.5">
-                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center p-2">
-                        <img src="images/logo.svg" alt="Mundo Computer" class="w-full h-full object-contain">
-                    </div>
+                    <img src="images/logo.svg" alt="Mundo Computer" class="w-12 h-12 object-contain">
                     <div>
                         <h1 class="text-xl sm:text-2xl font-black text-white print-text-dark tracking-tight">MUNDO COMPUTER</h1>
                         <p class="text-xs text-gamer-plata print-text-muted">Hardware & Periféricos Gamer Bolivia</p>
@@ -207,7 +205,7 @@
                 </div>
 
                 <!-- Bloque de Total: Centrado en Android e iOS, alineado a la derecha en PC -->
-                <div class="order-total-block w-full max-w-sm sm:max-w-none sm:w-auto mx-auto sm:mx-0 bg-[#070b13] print-border border border-white/10 rounded-2xl p-5 text-center sm:text-right flex items-center justify-center sm:justify-end">
+                <div class="order-total-block w-full max-w-sm sm:max-w-none sm:w-auto mx-auto sm:mx-0 bg-[#070b13] print-border rounded-2xl p-5 text-center sm:text-right flex items-center justify-center sm:justify-end">
                     <div class="text-3xl sm:text-4xl font-black text-gamer-cyan print-text-dark tracking-tight">
                         <span x-text="'Bs. ' + Number(order.total).toLocaleString('es-BO')"></span>
                     </div>
