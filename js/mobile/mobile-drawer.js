@@ -129,20 +129,6 @@
             });
         }
 
-        // Interacción inicial para el botón de Carrito
-        cartBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (window.MundoCart) {
-                    const count = window.MundoCart.getTotalCount();
-                    if (count > 0) {
-                        window.MundoCart.showNotification(`Tienes ${count} producto(s) en tu carrito`);
-                    } else {
-                        window.MundoCart.showNotification('Tu carrito de compras está vacío');
-                    }
-                }
-            });
-        });
     }
 
     if (document.readyState === 'loading') {

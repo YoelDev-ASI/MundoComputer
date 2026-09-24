@@ -56,7 +56,6 @@ class ShoppingCart {
         }
 
         this.saveCart();
-        this.showNotification(`¡${product.name} añadido al carrito!`);
     }
 
     removeItem(id, color = null) {
@@ -115,39 +114,10 @@ class ShoppingCart {
     }
 
     showNotification(msg) {
-        let toast = document.getElementById('mc-cart-toast');
-        if (!toast) {
-            toast = document.createElement('div');
-            toast.id = 'mc-cart-toast';
-            toast.className = 'mc-cart-toast fixed bottom-20 left-4 right-4 mx-auto sm:bottom-6 sm:right-6 sm:left-auto sm:mx-0 z-50 bg-[#0c1322] border border-[#00F2FE]/40 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 w-[calc(100%-32px)] max-w-[360px] sm:w-auto sm:max-w-sm';
-            toast.innerHTML = `
-                <div class="w-9 h-9 rounded-xl bg-[#00F2FE]/15 text-[#00F2FE] flex items-center justify-center flex-shrink-0">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                    </svg>
-                </div>
-                <div class="flex-1 min-w-0">
-                    <p id="mc-cart-toast-text" class="text-xs sm:text-sm font-semibold truncate"></p>
-                    <a href="carrito.html" class="text-[11px] text-[#00F2FE] hover:underline font-bold inline-flex items-center gap-1 mt-0.5">
-                        Ver Carrito &rarr;
-                    </a>
-                </div>
-                <button type="button" onclick="this.parentElement.classList.add('translate-y-20','opacity-0')" class="text-gray-400 hover:text-white p-1 text-sm">✕</button>
-            `;
-            document.body.appendChild(toast);
+        const toast = document.getElementById('mc-cart-toast');
+        if (toast) {
+            toast.remove();
         }
-
-        const textEl = document.getElementById('mc-cart-toast-text');
-        if (textEl) textEl.textContent = msg;
-
-        toast.classList.remove('translate-y-20', 'opacity-0');
-        toast.classList.add('translate-y-0', 'opacity-100');
-
-        clearTimeout(this.toastTimeout);
-        this.toastTimeout = setTimeout(() => {
-            toast.classList.add('translate-y-20', 'opacity-0');
-            toast.classList.remove('translate-y-0', 'opacity-100');
-        }, 3500);
     }
 
     /**
