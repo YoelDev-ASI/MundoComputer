@@ -10,7 +10,7 @@
     border-radius: 24px;
     overflow: hidden;
     background: radial-gradient(circle at 75% 50%, #0e203c 0%, #08111e 60%, #080808 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: none;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
     min-height: 420px;
     display: flex;

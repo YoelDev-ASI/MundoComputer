@@ -108,7 +108,7 @@
     </div>
 
     <!-- 2. ENCABEZADO PRINCIPAL CON BUSCADOR SUPERIOR -->
-    <header class="pc-main-header sticky top-0 z-40">
+    <header class="pc-main-header md:sticky md:top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-2 sm:gap-4">
 
             <!-- Lado Izquierdo: Botón Menú 3 Barras + Logo (en PC) -->
@@ -216,8 +216,6 @@
                     <!-- FOTO DEL PRODUCTO: DISEÑO REDONDEADO TIPO INDEX CON LUPA INTERACTIVA -->
                     <div class="space-y-4">
                         <div id="product-zoom-frame" class="product-zoom-frame">
-                            <!-- Badge de Estado (OFERTA / NUEVO / DESTACADO) -->
-                            <span class="pc-badge-destacado" x-text="product.is_offer ? 'OFERTA' : (product.is_new ? 'NUEVO' : 'DESTACADO')">DESTACADO</span>
 
                             <!-- Botón con Ícono de Lupa (Activo en PC / Escritorio con cursor; oculto en Android e iOS) -->
                             <button type="button" 
@@ -248,14 +246,8 @@
                     <div class="flex flex-col justify-between">
                         <div>
                             <span class="text-xs uppercase font-extrabold tracking-widest text-gamer-cyan block mb-2" x-text="product.brand || categoryName(product.category)"></span>
-                            <h1 class="text-2xl sm:text-3xl font-black text-white leading-tight mb-3" x-text="product.name"></h1>
-                            
-                            <!-- Rating -->
-                            <div class="flex items-center gap-2 mb-4">
-                                <div class="text-gamer-cyan text-sm">★★★★★</div>
-                                <span class="text-xs text-gamer-plata" x-text="'(' + (product.reviews_count || 10) + ' opiniones verificadas)'"></span>
-                                <span class="text-xs text-gamer-cyan font-bold ml-4">● En Stock para Entrega Inmediata</span>
-                            </div>
+                            <h1 class="text-2xl sm:text-3xl font-black text-white leading-tight mb-4" x-text="product.name"></h1>
+
 
                             <!-- Precios en Cyan -->
                             <div class="flex items-baseline gap-4 mb-6 pb-6 border-b border-gamer-gris">
@@ -314,7 +306,7 @@
                             </div>
 
                             <!-- Botón secundario para ir directamente al carrito -->
-                            <a href="carrito.html" class="w-full h-11 border border-white/15 hover:border-gamer-cyan text-white hover:text-gamer-cyan font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-all bg-white/[0.03]">
+                            <a href="carrito.html" class="w-full h-11 bg-white/5 hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition-all">
                                 <span>Ver Carrito de Compras</span>
                                 <span>&rarr;</span>
                             </a>
@@ -356,7 +348,6 @@
                         <template x-for="rel in relatedProducts" :key="'rel-' + rel.id">
                             <div class="pc-product-card group">
                                 <a :href="'producto.html?slug=' + rel.slug" class="pc-product-image-wrap block">
-                                    <span class="pc-badge-destacado" x-text="rel.is_offer ? 'OFERTA' : 'DESTACADO'">DESTACADO</span>
                                     <img :src="rel.image_url" :alt="rel.name" class="pc-product-image" loading="lazy">
                                 </a>
                                 <div>

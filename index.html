@@ -259,7 +259,7 @@
     </div>
 
     <!-- 2. ENCABEZADO PRINCIPAL CON BUSCADOR SUPERIOR -->
-    <header class="pc-main-header sticky top-0 z-40">
+    <header class="pc-main-header md:sticky md:top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-2 sm:gap-4">
 
             <!-- Lado Izquierdo: Botón Menú 3 Barras + Logo (en PC) -->
@@ -373,7 +373,7 @@
                         </svg>
                     </a>
                     <a href="categoria.html?cat=novedades"
-                        class="hidden sm:inline-flex items-center justify-center bg-white/5 hover:bg-white/10 border border-white/15 hover:border-gamer-cyan/50 text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3.5 rounded-xl transition-all">
+                        class="hidden sm:inline-flex items-center justify-center bg-white/5 hover:bg-white/10 text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3.5 rounded-xl transition-all">
                         Ver Novedades
                     </a>
                 </div>
@@ -409,8 +409,6 @@
                 <template x-for="prod in newArrivals" :key="'new-' + prod.id">
                     <div class="pc-product-card group">
                         <a :href="'producto.html?slug=' + prod.slug" class="pc-product-image-wrap block">
-                            <span class="pc-badge-destacado"
-                                x-text="prod.is_offer ? 'OFERTA' : (prod.is_new ? 'NUEVO' : 'DESTACADO')">DESTACADO</span>
                             <img :src="prod.image_url" :alt="prod.name" class="pc-product-image" loading="lazy">
                         </a>
                         <div>
@@ -458,8 +456,6 @@
                 <template x-for="prod in featuredKeyboards" :key="'kb-' + prod.id">
                     <div class="pc-product-card group">
                         <a :href="'producto.html?slug=' + prod.slug" class="pc-product-image-wrap block">
-                            <span class="pc-badge-destacado"
-                                x-text="prod.is_offer ? 'OFERTA' : 'DESTACADO'">DESTACADO</span>
                             <img :src="prod.image_url" :alt="prod.name" class="pc-product-image" loading="lazy">
                         </a>
                         <div>
@@ -472,13 +468,6 @@
                                     <span class="pc-price-old" x-text="window.formatPrice(prod.old_price)"></span>
                                 </template>
                                 <span class="pc-price-current" x-text="window.formatPrice(prod.price)"></span>
-                            </div>
-                            <!-- Swatches de Color -->
-                            <div class="pc-color-swatches" x-show="prod.colors && prod.colors.length > 0">
-                                <template x-for="(col, idx) in prod.colors" :key="idx">
-                                    <div class="pc-color-circle" :style="'background-color: ' + col.hex"
-                                        :title="col.name"></div>
-                                </template>
                             </div>
                         </div>
                         <div class="pc-card-actions">
@@ -516,14 +505,12 @@
                     class="absolute inset-0 w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-r from-gamer-negro via-gamer-negro/85 to-transparent"></div>
                 <div class="relative z-10 p-6 sm:p-10 max-w-lg">
-                    <span class="text-[10px] font-black uppercase tracking-widest text-gamer-cyan block mb-2">Setup
-                        Aesthetics</span>
                     <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight mb-2">Personaliza tu
                         Espacio</h3>
                     <p class="text-xs text-gamer-plata mb-4">Descubre accesorios decorativos, iluminación ambiental y
                         complementos diseñados para elevar la estética de tu escritorio.</p>
                     <a href="categoria.html?cat=accessories"
-                        class="inline-block bg-gamer-cyan hover:bg-gamer-blue text-gamer-negro font-black text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all">
+                        class="inline-block bg-gamer-cyan hover:bg-[#00d6e2] text-gamer-negro font-black text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-colors shadow-none">
                         Explorar Accesorios
                     </a>
                 </div>
@@ -534,8 +521,6 @@
                 <template x-for="prod in featuredAccessories" :key="'acc-' + prod.id">
                     <div class="pc-product-card group">
                         <a :href="'producto.html?slug=' + prod.slug" class="pc-product-image-wrap block">
-                            <span class="pc-badge-destacado"
-                                x-text="prod.is_offer ? 'OFERTA' : 'DESTACADO'">DESTACADO</span>
                             <img :src="prod.image_url" :alt="prod.name" class="pc-product-image" loading="lazy">
                         </a>
                         <div>

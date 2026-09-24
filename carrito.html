@@ -80,7 +80,7 @@
     </div>
 
     <!-- 2. ENCABEZADO PRINCIPAL -->
-    <header class="pc-main-header sticky top-0 z-40">
+    <header class="pc-main-header md:sticky md:top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-2 sm:gap-4">
             <!-- Lado Izquierdo: Botón Menú 3 Barras + Logo (en PC) -->
             <div class="flex items-center gap-3 flex-shrink-0">
@@ -291,20 +291,19 @@
             </div>
         </div>
 
-        <!-- VISTA VACÍA CUANDO NO HAY PRODUCTOS -->
-        <div x-show="items.length === 0" class="text-center py-16 sm:py-24 bg-[#0b101b] border border-white/5 rounded-3xl p-8 max-w-xl mx-auto shadow-2xl">
-            <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center text-gamer-cyan mb-6">
-                <svg class="w-10 h-10 sm:w-12 sm:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+        <!-- VISTA VACÍA CUANDO NO HAY PRODUCTOS (DISEÑO RÚSTICO Y SIMPLE) -->
+        <div x-show="items.length === 0" class="bg-[#0a0e17] border border-[#1e293b] rounded-2xl p-10 sm:p-14 max-w-lg mx-auto text-center my-8">
+            <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-[#0f172a] border border-[#1e293b] flex items-center justify-center text-slate-400">
+                <svg class="w-8 h-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
             </div>
-            <h2 class="text-xl sm:text-2xl font-black text-white mb-2">Tu carrito está vacío</h2>
-            <p class="text-xs sm:text-sm text-gamer-plata mb-8 max-w-md mx-auto">
-                Aún no has añadido ningún producto. Explora nuestro catálogo de teclados, mouses y accesorios gamer de alta gama.
+            <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">Tu carrito está vacío</h2>
+            <p class="text-sm text-slate-400 mb-7 max-w-sm mx-auto">
+                No has añadido ningún producto a tu carrito todavía.
             </p>
-            <a href="categoria.html" class="inline-flex items-center gap-2 bg-gamer-cyan hover:bg-gamer-blue text-gamer-negro font-black text-xs sm:text-sm uppercase tracking-wider py-3.5 px-8 rounded-xl transition-all shadow-lg hover:scale-105">
-                <span>Explorar Catálogo de Productos</span>
-                <span>&rarr;</span>
+            <a href="categoria.html" class="inline-flex items-center justify-center bg-gamer-cyan hover:bg-[#00d6e2] text-gamer-negro font-black text-xs sm:text-sm uppercase tracking-wider px-7 py-3.5 rounded-xl transition-colors">
+                Explorar Catálogo
             </a>
         </div>
     </main>

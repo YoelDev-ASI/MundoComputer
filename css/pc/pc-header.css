@@ -7,21 +7,57 @@
 /* Barra de Anuncios y Confianza Superior */
 .pc-topbar {
     background-color: #060b14;
-    border-bottom: 1px solid rgba(0, 242, 254, 0.1);
+    border-bottom: 1px solid #1e293b;
     font-size: 11px;
     letter-spacing: 0.03em;
     color: #a3b3cc;
 }
 
 .pc-topbar-highlight {
-    color: #00F2FE;
+    color: #94a3b8;
     font-weight: 700;
 }
 
 /* Encabezado Principal de Escritorio */
 .pc-main-header {
     background-color: #0a0e17;
-    border-bottom: 1px solid rgba(0, 242, 254, 0.12);
+    border-bottom: 1px solid #1e293b;
+    position: relative;
+    z-index: 40;
+    transition: box-shadow 0.25s ease;
+}
+
+/* En PC / Laptops / Pantallas Grandes: Header fijo al hacer scroll hacia abajo */
+@media (min-width: 769px) {
+    .pc-main-header {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 50 !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+}
+
+.platform-pc .pc-main-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* En Android / Móvil: El encabezado NO debe ser sticky (scroll natural sin tapar pantalla) */
+@media (max-width: 768px) {
+    .pc-main-header {
+        position: static !important;
+        top: auto !important;
+        box-shadow: none !important;
+    }
+}
+
+.platform-android .pc-main-header,
+.platform-ios .pc-main-header {
+    position: static !important;
+    top: auto !important;
+    box-shadow: none !important;
 }
 
 /* Buscador Central Prominente para PC */
@@ -34,17 +70,21 @@
     display: flex;
     align-items: center;
     background-color: #0f172a;
-    border: 1px solid #1e293b;
+    border: none !important;
     border-radius: 9999px;
-    padding: 8px 18px;
-    transition: all 0.25s ease;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    padding: 9px 20px;
+    transition: none;
+    box-shadow: none;
+    outline: none !important;
 }
 
+.pc-search-box:hover,
+.pc-search-box:focus,
 .pc-search-box:focus-within {
-    border-color: #00F2FE;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
-    background-color: #131d35;
+    border: none !important;
+    box-shadow: none !important;
+    background-color: #0f172a !important;
+    outline: none !important;
 }
 
 .pc-category-select {
@@ -72,6 +112,12 @@
     outline: none;
     color: #f8fafc;
     font-size: 13.5px;
+}
+
+.pc-search-input:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 .pc-search-input::placeholder {
