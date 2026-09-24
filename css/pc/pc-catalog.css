@@ -33,7 +33,6 @@
 }
 
 .pc-product-card:hover {
-    border-color: #00F2FE;
     transform: translateY(-4px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }

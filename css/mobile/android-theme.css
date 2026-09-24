@@ -63,6 +63,13 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
+/* Quitar Hover Lift (Elevación) en Android */
+.platform-android .pc-product-card:hover,
+.platform-android .pc-product-card:active {
+    transform: none !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
 /* Top App Bar Android */
 .platform-android .mobile-top-bar {
     background-color: #0a101b;

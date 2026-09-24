@@ -175,30 +175,6 @@
     }
 }
 
-/* Migas de pan (Breadcrumbs) para páginas dedicadas */
-.pc-breadcrumbs {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    font-weight: 500;
-    color: #64748b;
-    padding: 16px 0;
-}
-
-.pc-breadcrumbs a {
-    color: #94a3b8;
-    transition: color 0.2s;
-}
-
-.pc-breadcrumbs a:hover {
-    color: #00F2FE;
-}
-
-.pc-breadcrumbs-active {
-    color: #ffffff;
-    font-weight: 700;
-}
 
 /* ==========================================================================
    🔔 NOTIFICACIÓN TOAST EN COMPUTADORA (PC / DESKTOP)

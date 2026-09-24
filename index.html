@@ -65,6 +65,12 @@
                 background-color: #0e1626 !important;
             }
 
+            /* Quitar Hover Lift (Elevación / Flotación) en móviles */
+            .pc-product-card:hover,
+            .pc-product-card:active {
+                transform: none !important;
+            }
+
             .pc-product-image-wrap {
                 aspect-ratio: 16 / 11 !important;
                 border-radius: 10px !important;
@@ -138,6 +144,14 @@
         .platform-ios .pc-product-card {
             padding: 10px !important;
             border-radius: 14px !important;
+        }
+
+        /* Quitar Hover Lift (Elevación / Flotación) en Android e iOS */
+        .platform-android .pc-product-card:hover,
+        .platform-android .pc-product-card:active,
+        .platform-ios .pc-product-card:hover,
+        .platform-ios .pc-product-card:active {
+            transform: none !important;
         }
 
         .platform-android .pc-product-image-wrap,

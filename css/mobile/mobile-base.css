@@ -105,6 +105,13 @@
         -webkit-tap-highlight-color: transparent !important;
     }
 
+    /* Desactivar Hover Lift (Elevación / Flotación) en móviles */
+    .pc-product-card:hover,
+    .pc-product-card:active {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
     .pc-product-image-wrap {
         aspect-ratio: 16 / 11 !important;
         border-radius: 10px !important;
@@ -173,6 +180,14 @@
 .platform-ios .pc-product-card {
     touch-action: manipulation !important;
     -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Desactivar Hover Lift (Elevación) exclusivamente en Android e iOS */
+.platform-android .pc-product-card:hover,
+.platform-android .pc-product-card:active,
+.platform-ios .pc-product-card:hover,
+.platform-ios .pc-product-card:active {
+    transform: none !important;
 }
 
 

@@ -37,6 +37,13 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
+/* Quitar Hover Lift (Elevación) en iOS */
+.platform-ios .pc-product-card:hover,
+.platform-ios .pc-product-card:active {
+    transform: none !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+}
+
 /* Botones con esquinas redondeadas y tipografía limpia */
 .platform-ios .pc-btn-cart {
     border-radius: 14px;

@@ -209,14 +209,6 @@
         <!-- CONTENEDOR DEL DETALLE DEL PRODUCTO -->
         <template x-if="product">
             <div>
-                <!-- BREADCRUMBS -->
-                <nav class="pc-breadcrumbs mb-6">
-                    <a href="index.html">Inicio</a>
-                    <span>/</span>
-                    <a :href="'categoria.html?cat=' + product.category" x-text="categoryName(product.category)"></a>
-                    <span>/</span>
-                    <span class="pc-breadcrumbs-active" x-text="product.name"></span>
-                </nav>
 
                 <!-- GRID PRINCIPAL DE PRODUCTO -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">

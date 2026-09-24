@@ -61,6 +61,12 @@
                 background-color: #0e1626 !important;
             }
 
+            /* Quitar Hover Lift (Elevación / Flotación) en móviles */
+            .pc-product-card:hover,
+            .pc-product-card:active {
+                transform: none !important;
+            }
+
             .pc-product-image-wrap {
                 aspect-ratio: 16 / 11 !important;
                 border-radius: 10px !important;
@@ -128,6 +134,14 @@
         .platform-ios .pc-product-card {
             padding: 10px !important;
             border-radius: 14px !important;
+        }
+
+        /* Quitar Hover Lift (Elevación / Flotación) en Android e iOS */
+        .platform-android .pc-product-card:hover,
+        .platform-android .pc-product-card:active,
+        .platform-ios .pc-product-card:hover,
+        .platform-ios .pc-product-card:active {
+            transform: none !important;
         }
 
         .platform-android .pc-product-image-wrap,
@@ -325,14 +339,6 @@
     <!-- CONTENIDO PRINCIPAL -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
         
-        <!-- BREADCRUMBS -->
-        <nav class="pc-breadcrumbs mb-4">
-            <a href="index.html">Inicio</a>
-            <span>/</span>
-            <a href="categoria.html">Catálogo</a>
-            <span>/</span>
-            <span class="pc-breadcrumbs-active" x-text="categoryTitle"></span>
-        </nav>
 
         <!-- CABECERA DE CATEGORÍA CON RESUMEN -->
         <div class="relative rounded-2xl bg-gradient-to-r from-gamer-navy to-gamer-negro border border-gamer-gris p-6 sm:p-8 mb-8 overflow-hidden shadow-2xl">
