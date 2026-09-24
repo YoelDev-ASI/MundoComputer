@@ -120,6 +120,11 @@
     overflow: hidden;
 }
 
+.pc-brands-strip:hover,
+.pc-brands-strip:active {
+    transform: none !important;
+}
+
 .pc-brands-grid {
     display: flex;
     align-items: center;
@@ -134,28 +139,22 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #64748b;
-    transition: color 0.25s ease, transform 0.25s cubic-bezier(0.2, 0, 0, 1), text-shadow 0.25s ease;
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     cursor: default;
     user-select: none;
-    transform-origin: center center;
+    transform: none;
+    text-shadow: none;
 }
 
-.pc-brand-item:first-child {
-    transform-origin: left center;
-}
-
-.pc-brand-item:last-child {
-    transform-origin: right center;
-}
-
-.pc-brand-item:hover {
-    color: #00F2FE;
-    transform: scale(1.08);
-    text-shadow: 0 0 16px rgba(0, 242, 254, 0.4);
+.pc-brand-item:hover,
+.pc-brand-item:active,
+.pc-brand-item:focus {
+    color: #64748b !important;
+    transform: none !important;
+    text-shadow: none !important;
 }
 
 @media (max-width: 900px) {
