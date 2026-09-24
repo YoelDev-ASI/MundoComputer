@@ -103,6 +103,11 @@
                 color: #0f172a !important;
                 border: 1px solid #cbd5e1 !important;
             }
+            table {
+                table-layout: fixed !important;
+                width: 100% !important;
+                min-width: 0 !important;
+            }
         }
     </style>
 </head>
@@ -155,16 +160,16 @@
 
             <!-- Tabla de Productos Cotizados -->
             <div class="py-6">
-                <h2 class="text-xs uppercase font-extrabold tracking-widest text-gamer-cyan mb-4">Detalle de los Productos</h2>
+                <h2 class="text-xs uppercase font-extrabold tracking-widest text-gamer-cyan print-text-dark mb-4">Detalle de los Productos</h2>
                 
                 <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
+                    <table class="w-full min-w-[500px] sm:min-w-0 text-left border-collapse table-fixed">
                         <thead>
                             <tr class="border-b border-white/10 print-border text-[11px] uppercase tracking-wider text-gray-400 print-text-muted">
-                                <th class="pb-3 font-bold">Producto</th>
-                                <th class="pb-3 font-bold text-center">Cant.</th>
-                                <th class="pb-3 font-bold text-right">Precio Unit.</th>
-                                <th class="pb-3 font-bold text-right">Subtotal</th>
+                                <th class="pb-3 font-bold w-[46%]">Producto</th>
+                                <th class="pb-3 font-bold text-center w-[18%] whitespace-nowrap px-2">Cant.</th>
+                                <th class="pb-3 font-bold text-right w-[18%] whitespace-nowrap px-3">Precio Unit.</th>
+                                <th class="pb-3 font-bold text-right w-[18%] whitespace-nowrap pl-3 pr-1">Subtotal</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-white/5 print-border text-xs sm:text-sm">
@@ -175,7 +180,7 @@
                                             <template x-if="item.img">
                                                 <img :src="item.img" :alt="item.name" class="w-10 h-10 object-cover rounded-lg bg-black/40 border border-white/10 flex-shrink-0">
                                             </template>
-                                            <div>
+                                            <div class="min-w-0">
                                                 <div class="font-bold text-white print-text-dark" x-text="item.name"></div>
                                                 <template x-if="item.color">
                                                     <span class="text-[11px] text-gamer-cyan print-text-muted" x-text="'Color: ' + item.color"></span>
@@ -183,9 +188,9 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="py-3.5 text-center font-bold text-white print-text-dark" x-text="item.qty"></td>
-                                    <td class="py-3.5 text-right text-gray-300 print-text-dark" x-text="'Bs. ' + Number(item.price).toLocaleString('es-BO')"></td>
-                                    <td class="py-3.5 text-right font-black text-gamer-cyan print-text-dark" x-text="'Bs. ' + (item.price * item.qty).toLocaleString('es-BO')"></td>
+                                    <td class="py-3.5 text-center font-bold text-white print-text-dark whitespace-nowrap px-2" x-text="item.qty"></td>
+                                    <td class="py-3.5 text-right text-gray-300 print-text-dark whitespace-nowrap px-3" x-text="'Bs. ' + Number(item.price).toLocaleString('es-BO')"></td>
+                                    <td class="py-3.5 text-right font-black text-gamer-cyan print-text-dark whitespace-nowrap pl-3 pr-1" x-text="'Bs. ' + (item.price * item.qty).toLocaleString('es-BO')"></td>
                                 </tr>
                             </template>
                         </tbody>
