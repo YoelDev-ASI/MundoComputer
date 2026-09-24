@@ -309,45 +309,129 @@
         </div>
     </main>
 
-    <!-- FOOTER OFICIAL -->
-    <footer class="bg-[#05070c] border-t border-gamer-gris text-gamer-plata mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-xs">
-                <div class="col-span-1 md:col-span-1">
-                    <div class="flex items-center gap-3 mb-4">
-                        <img src="images/logo.svg" alt="Mundo Computer" class="w-8 h-8 object-contain">
-                        <span class="text-base font-black text-white">MUNDO COMPUTER</span>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed mb-4">
-                        Hardware Gamer de alto rendimiento en Bolivia. Teclados mecánicos, periféricos competitivos y accesorios premium.
+    <!-- 4. BARRA DE NAVEGACIÓN INFERIOR MÓVIL (ANDROID / IOS) -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="mobile-nav-item">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span>Inicio</span>
+        </a>
+        <a href="categoria.html?cat=keyboards" class="mobile-nav-item">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>Teclados</span>
+        </a>
+        <a href="categoria.html?cat=accessories" class="mobile-nav-item">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Accesorios</span>
+        </a>
+        <a href="https://wa.me/59167735846" target="_blank" class="mobile-nav-item text-gamer-cyan">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.989 3.3 1.486 4.965 1.488 5.405-.001 9.805-4.4 9.808-9.81.002-2.62-1.018-5.086-2.87-6.938C16.638 2.04 14.17 1.018 11.55 1.017c-5.41 0-9.813 4.401-9.815 9.813-.001 1.958.51 3.827 1.484 5.445L2.2 21.8l5.63-1.476z" />
+            </svg>
+            <span>WhatsApp</span>
+        </a>
+    </nav>
+
+    <!-- FOOTER PROFESIONAL UNIFICADO -->
+    <footer class="relative overflow-hidden bg-gamer-carbon border-t border-gamer-gris pt-12 pb-4 md:py-12 mt-16 select-none">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 md:gap-8 mb-6 md:mb-8">
+                
+                <!-- 1. IDENTIDAD MUNDO COMPUTER (Fila completa en móvil, Columna 1 en PC) -->
+                <div class="col-span-2 md:col-span-1 space-y-3">
+                    <span class="text-base font-black tracking-wider text-white">MUNDO COMPUTER</span>
+                    <p class="text-xs text-gamer-plata leading-relaxed">
+                        Tienda líder en Bolivia en hardware de alto rendimiento, teclados mecánicos, mouses de esports y
+                        accesorios para setups gaming.
                     </p>
                 </div>
-                <div>
+
+                <!-- 2. CATEGORÍAS (Lado izquierdo en móvil, Columna 2 en PC) -->
+                <div class="col-span-1">
                     <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-3">Categorías</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="categoria.html?cat=keyboards" class="hover:text-gamer-cyan transition-colors">Teclados Mecánicos</a></li>
-                        <li><a href="categoria.html?cat=mice" class="hover:text-gamer-cyan transition-colors">Mouses Gamer</a></li>
-                        <li><a href="categoria.html?cat=headsets" class="hover:text-gamer-cyan transition-colors">Auriculares</a></li>
-                        <li><a href="categoria.html?cat=accessories" class="hover:text-gamer-cyan transition-colors">Accesorios de Setup</a></li>
+                    <ul class="space-y-2 text-xs text-gamer-plata">
+                        <li><a href="categoria.html?cat=keyboards"
+                                class="hover:text-gamer-cyan transition-colors">Teclados Mecánicos</a></li>
+                        <li><a href="categoria.html?cat=accessories"
+                                class="hover:text-gamer-cyan transition-colors">Accesorios de Setup</a></li>
+                        <li><a href="categoria.html?cat=mice" class="hover:text-gamer-cyan transition-colors">Mouses
+                                Gaming</a></li>
+                        <li><a href="categoria.html?cat=novedades"
+                                class="hover:text-gamer-cyan transition-colors">Novedades y Lanzamientos</a></li>
                     </ul>
                 </div>
-                <div>
+
+                <!-- 3. SEGURIDAD & LEGAL (Lado derecho de Categorías en móvil, Columna 3 en PC) -->
+                <div class="col-span-1">
                     <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-3">Seguridad & Legal</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="terminos-y-condiciones.html" class="hover:text-gamer-cyan transition-colors">Términos y Condiciones</a></li>
-                        <li><a href="politicas-de-seguridad.html" class="hover:text-gamer-cyan transition-colors">Políticas de Seguridad</a></li>
+                    <ul class="space-y-2 text-xs text-gamer-plata">
+                        <li><a href="terminos-y-condiciones.html"
+                                class="hover:text-gamer-cyan transition-colors">Términos y Condiciones</a></li>
+                        <li><a href="politicas-de-seguridad.html"
+                                class="hover:text-gamer-cyan transition-colors">Políticas de Seguridad</a></li>
                         <li><span>Pagos por QR Simple</span></li>
                     </ul>
                 </div>
-                <div>
+
+                <!-- 4. CONTACTO DIRECTO (Ocupa el espacio inferior de Seguridad & Legal, Columna 4 en PC) -->
+                <div class="col-span-2 md:col-span-1">
                     <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-3">Contacto Directo</h4>
-                    <p class="text-gray-400 mb-2">
-                        <a href="https://wa.me/59167735846" target="_blank" class="hover:text-gamer-cyan transition-colors">WhatsApp: +591 67735846</a>
+                    <p class="text-xs text-gamer-plata mb-2">
+                        <a href="https://wa.me/59167735846" target="_blank" rel="noopener noreferrer"
+                            class="hover:text-gamer-cyan transition-colors">WhatsApp: +591 67735846</a>
                     </p>
-                    <p class="text-gray-400">Atención de Lunes a Sábado de 09:00 a 19:30</p>
+                    <p class="text-xs text-gamer-plata mb-4">Atención de Lunes a Sábado de 09:00 a 19:30</p>
+
+                    <!-- SÍGUENOS (Centrado y bajado en móvil con separación elegante, alineado a la izquierda en PC) -->
+                    <div class="text-center md:text-left pt-6 mt-4 border-t border-gamer-gris/30 md:border-t-0 md:mt-0 md:pt-2">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-3">Síguenos</h4>
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <!-- Facebook -->
+                            <a href="https://facebook.com/mundocomputer" target="_blank" rel="noopener noreferrer"
+                                class="w-9 h-9 rounded-xl bg-gamer-negro border border-gamer-gris hover:border-gamer-cyan text-gamer-plata hover:text-gamer-cyan flex items-center justify-center transition-all duration-300 group"
+                                title="Síguenos en Facebook" aria-label="Facebook">
+                                <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover:scale-110"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                </svg>
+                            </a>
+
+                            <!-- Instagram -->
+                            <a href="https://instagram.com/mundocomputer" target="_blank" rel="noopener noreferrer"
+                                class="w-9 h-9 rounded-xl bg-gamer-negro border border-gamer-gris hover:border-gamer-cyan text-gamer-plata hover:text-gamer-cyan flex items-center justify-center transition-all duration-300 group"
+                                title="Síguenos en Instagram" aria-label="Instagram">
+                                <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover:scale-110"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+
+                            <!-- TikTok -->
+                            <a href="https://tiktok.com/@mundocomputer" target="_blank" rel="noopener noreferrer"
+                                class="w-9 h-9 rounded-xl bg-gamer-negro border border-gamer-gris hover:border-gamer-cyan text-gamer-plata hover:text-gamer-cyan flex items-center justify-center transition-all duration-300 group"
+                                title="Síguenos en TikTok" aria-label="TikTok">
+                                <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover:scale-110"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-gamer-gris/40 pt-6 text-xs text-gray-400 text-center md:text-left">
+            <div class="border-t border-gamer-gris/40 mt-8 pt-5 text-xs text-gamer-plata text-center md:text-left">
                 <p>&copy; 2026 Mundo Computer Web. Todos los derechos reservados. Hardware & Gaming Store Bolivia.</p>
             </div>
         </div>

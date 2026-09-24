@@ -117,21 +117,16 @@
     <main class="max-w-3xl mx-auto w-full">
         
         <!-- Barra de Acciones Superior (Oculta al Imprimir) -->
-        <div class="no-print flex items-center justify-between mb-6 gap-3 flex-wrap">
+        <div class="no-print flex items-center justify-between mb-6 gap-3">
             <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold text-gamer-plata hover:text-gamer-cyan transition-colors bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl">
-                <span>&larr; Volver a la Tienda</span>
+                <span>Ir a la Tienda</span>
             </a>
-            <div class="flex items-center gap-2">
-                <button type="button" onclick="window.print()" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-[#0e1626] hover:bg-[#16233b] px-4 py-2 rounded-xl transition-all shadow-md">
-                    <svg class="w-4 h-4 text-gamer-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-                    </svg>
-                    <span>Imprimir / Guardar PDF</span>
-                </button>
-                <a :href="getWhatsAppUrl()" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-black text-gamer-negro bg-gamer-cyan hover:bg-gamer-blue px-4 py-2 rounded-xl transition-all">
-                    <span>Chat WhatsApp</span>
-                </a>
-            </div>
+            <button type="button" onclick="window.print()" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-[#0e1626] hover:bg-[#16233b] px-4 py-2 rounded-xl transition-all shadow-md">
+                <svg class="w-4 h-4 text-gamer-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                </svg>
+                <span>Guardar PDF</span>
+            </button>
         </div>
 
         <!-- TARJETA DEL TICKET DIGITAL -->
@@ -219,18 +214,9 @@
 
             <!-- Sección de Información y Coordinación -->
             <div class="mt-8 pt-6 border-t border-white/10 print-border bg-white/[0.02] -mx-6 -mb-6 sm:-mx-10 sm:-mb-10 p-6 sm:p-8 rounded-b-3xl">
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="text-xs text-gamer-plata print-text-muted text-center sm:text-left">
-                        <p class="font-bold text-white print-text-dark mb-1">Mundo Computer Bolivia</p>
-                        <p>Atención y consultas: +591 67735846 | Lunes a Sábado de 09:00 a 19:30</p>
-                    </div>
-                    
-                    <a :href="getWhatsAppUrl()" target="_blank" class="no-print inline-flex items-center gap-2 bg-gamer-cyan hover:bg-gamer-blue text-gamer-negro font-black text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-lg hover:scale-105">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.989 3.3 1.486 4.965 1.488 5.405-.001 9.805-4.4 9.808-9.81.002-2.62-1.018-5.086-2.87-6.938C16.638 2.04 14.17 1.018 11.55 1.017c-5.41 0-9.813 4.401-9.815 9.813-.001 1.958.51 3.827 1.484 5.445L2.2 21.8l5.63-1.476z"/>
-                        </svg>
-                        <span>Confirmar por WhatsApp</span>
-                    </a>
+                <div class="text-xs text-gamer-plata print-text-muted text-center">
+                    <p class="font-bold text-white print-text-dark mb-1">Mundo Computer Bolivia</p>
+                    <p>Atención y consultas: +591 67735846 | Lunes a Sábado de 09:00 a 19:30</p>
                 </div>
             </div>
 
@@ -238,7 +224,7 @@
     </main>
 
     <!-- Footer Simple (No Imprimible) -->
-    <footer class="no-print text-center text-xs text-gamer-plata py-6 mt-8">
+    <footer class="no-print text-center text-xs text-gamer-plata py-6 mt-16 sm:mt-24 pb-12">
         <p>&copy; 2026 Mundo Computer Web. Todos los derechos reservados. Hardware & Gaming Store Bolivia.</p>
     </footer>
 
