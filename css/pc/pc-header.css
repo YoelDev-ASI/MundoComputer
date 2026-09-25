@@ -44,20 +44,28 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-/* En Android / Móvil: El encabezado NO debe ser sticky (scroll natural sin tapar pantalla) */
+/* En Móvil, Android e iOS: El encabezado es sticky para acompañar el scroll */
 @media (max-width: 768px) {
     .pc-main-header {
-        position: static !important;
-        top: auto !important;
-        box-shadow: none !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 50 !important;
+        background-color: rgba(10, 14, 23, 0.96) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
     }
 }
 
 .platform-android .pc-main-header,
 .platform-ios .pc-main-header {
-    position: static !important;
-    top: auto !important;
-    box-shadow: none !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
+    background-color: rgba(10, 14, 23, 0.96) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* Buscador Central Prominente para PC */

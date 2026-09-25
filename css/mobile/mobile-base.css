@@ -4,45 +4,29 @@
    Paleta: Azul oscuro, Cyan y Carbono
    ========================================================================== */
 
-/* Barra de Navegación Inferior Móvil (Bottom Navigation Bar) */
+/* Barra de Navegación Inferior Móvil (Desactivada a solicitud del usuario) */
 .mobile-bottom-nav {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 45;
-    background-color: rgba(10, 16, 27, 0.96);
-    border-top: 1px solid rgba(0, 242, 254, 0.15);
-    backdrop-filter: blur(16px);
-    padding: 8px 12px;
-    padding-bottom: max(8px, env(safe-area-inset-bottom));
+    display: none !important;
 }
 
 @media (max-width: 768px) {
     .mobile-bottom-nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
+        display: none !important;
     }
 
-    /* Espaciado para que el contenido no quede tapado por la barra inferior */
     body {
-        padding-bottom: 72px;
+        padding-bottom: 0 !important;
     }
 }
 
-/* Forzado cuando la plataforma móvil está activa por el conmutador de desarrollo */
 .platform-android .mobile-bottom-nav,
 .platform-ios .mobile-bottom-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    display: none !important;
 }
 
 .platform-android body,
 .platform-ios body {
-    padding-bottom: 72px;
+    padding-bottom: 0 !important;
 }
 
 .mobile-nav-item {
