@@ -44,6 +44,12 @@
                 drawerPanel.classList.add('translate-x-0');
             }
 
+            if (menuBtn) {
+                menuBtn.setAttribute('aria-expanded', 'true');
+                menuBtn.setAttribute('aria-label', 'Cerrar menú de navegación');
+                menuBtn.classList.add('is-active');
+            }
+
             document.body.style.overflow = 'hidden';
         }
 
@@ -62,8 +68,14 @@
                 drawerPanel.classList.add('-translate-x-full');
             }
 
+            if (menuBtn) {
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuBtn.setAttribute('aria-label', 'Abrir menú de navegación');
+                menuBtn.classList.remove('is-active');
+            }
+
             setTimeout(() => {
-                if (drawer.getAttribute('aria-hidden') === 'true') {
+                if (drawer && drawer.getAttribute('aria-hidden') === 'true') {
                     drawer.classList.add('pointer-events-none');
                     drawer.classList.add('invisible');
                 }
@@ -72,8 +84,23 @@
             document.body.style.overflow = '';
         }
 
+        // Alternar (Abrir/Cerrar) Menú Lateral desde las 3 barras
+        function toggleDrawer(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            if (!drawer) return;
+            const isOpen = drawer.getAttribute('aria-hidden') === 'false';
+            if (isOpen) {
+                closeDrawer();
+            } else {
+                openDrawer();
+            }
+        }
+
         if (menuBtn) {
-            menuBtn.addEventListener('click', openDrawer);
+            menuBtn.addEventListener('click', toggleDrawer);
         }
 
         if (closeBtn) {
@@ -90,6 +117,16 @@
                 closeDrawer();
             }
         });
+
+        // Cerrar drawer al hacer clic en enlaces internos de navegación
+        if (drawer) {
+            const drawerLinks = drawer.querySelectorAll('nav a');
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    closeDrawer();
+                });
+            });
+        }
 
         // Acordeón con flecha para "Ver Catálogo"
         if (catalogToggle && catalogSubmenu) {

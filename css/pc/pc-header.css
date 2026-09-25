@@ -49,7 +49,7 @@
     .pc-main-header {
         position: sticky !important;
         top: 0 !important;
-        z-index: 50 !important;
+        z-index: 60 !important;
         background-color: rgba(10, 14, 23, 0.96) !important;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
@@ -61,7 +61,7 @@
 .platform-ios .pc-main-header {
     position: sticky !important;
     top: 0 !important;
-    z-index: 50 !important;
+    z-index: 60 !important;
     background-color: rgba(10, 14, 23, 0.96) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -189,6 +189,11 @@
 .header-search-toggle-btn:hover {
     color: #00F2FE;
     background-color: rgba(255, 255, 255, 0.06);
+}
+
+.header-menu-btn.is-active {
+    color: #00F2FE !important;
+    background-color: rgba(0, 242, 254, 0.12) !important;
 }
 
 .header-cart-btn {
