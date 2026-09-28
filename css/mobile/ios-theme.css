@@ -8,6 +8,7 @@
     --ios-bg: #000000;
     --ios-card: #1c1c1e;
     --ios-separator: rgba(255, 255, 255, 0.12);
+    --mobile-header-height: calc(64px + env(safe-area-inset-top));
 }
 
 .platform-ios body {

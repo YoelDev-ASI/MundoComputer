@@ -35,6 +35,10 @@
         z-index: 50 !important;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     }
+
+    body {
+        padding-top: 0 !important;
+    }
 }
 
 .platform-pc .pc-main-header {
@@ -44,28 +48,47 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-/* En Móvil, Android e iOS: El encabezado es sticky para acompañar el scroll */
+.platform-pc body {
+    padding-top: 0 !important;
+}
+
+/* En Móvil, Android e iOS: El encabezado es FIXED (anclado permanentemente arriba) */
 @media (max-width: 768px) {
     .pc-main-header {
-        position: sticky !important;
+        position: fixed !important;
         top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
         z-index: 60 !important;
-        background-color: rgba(10, 14, 23, 0.96) !important;
+        background-color: rgba(10, 14, 23, 0.98) !important;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    body {
+        padding-top: var(--mobile-header-height, 64px) !important;
     }
 }
 
 .platform-android .pc-main-header,
 .platform-ios .pc-main-header {
-    position: sticky !important;
+    position: fixed !important;
     top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     z-index: 60 !important;
-    background-color: rgba(10, 14, 23, 0.96) !important;
+    background-color: rgba(10, 14, 23, 0.98) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+.platform-android body,
+.platform-ios body {
+    padding-top: var(--mobile-header-height, 64px) !important;
 }
 
 /* Buscador Central Prominente para PC */

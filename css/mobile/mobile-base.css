@@ -181,6 +181,10 @@
    ========================================================================== */
 #mobile-drawer {
     transition: opacity 0.25s ease, visibility 0.25s ease;
+    top: var(--mobile-header-height, 64px) !important;
+    height: calc(100% - var(--mobile-header-height, 64px)) !important;
+    height: calc(100dvh - var(--mobile-header-height, 64px)) !important;
+    z-index: 50 !important;
 }
 
 #drawer-backdrop {
@@ -189,10 +193,21 @@
 }
 
 #drawer-panel {
+    top: var(--mobile-header-height, 64px) !important;
+    bottom: 0 !important;
+    height: calc(100% - var(--mobile-header-height, 64px)) !important;
+    height: calc(100dvh - var(--mobile-header-height, 64px)) !important;
     width: 245px !important;
     max-width: 75vw !important;
     box-shadow: 4px 0 24px rgba(0, 0, 0, 0.6);
-    padding-top: max(0px, env(safe-area-inset-top));
+    padding-top: 0 !important;
+}
+
+/* Ocultar cabecera redundante del drawer (logo y botón X) para que el menú
+   se integre perfectamente bajo el encabezado principal que permanece fijo */
+.drawer-header,
+#drawer-header {
+    display: none !important;
 }
 
 .drawer-nav-link {

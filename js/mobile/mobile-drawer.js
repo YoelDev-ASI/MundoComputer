@@ -30,6 +30,12 @@
         // Abrir Menú Lateral
         function openDrawer() {
             if (!drawer) return;
+
+            // Si la barra de búsqueda móvil estaba desplegada, ocultarla para mantener la UI limpia
+            if (mobileSearchBar && !mobileSearchBar.classList.contains('hidden')) {
+                mobileSearchBar.classList.add('hidden');
+            }
+
             drawer.classList.remove('pointer-events-none');
             drawer.classList.remove('invisible');
             drawer.setAttribute('aria-hidden', 'false');
@@ -155,6 +161,9 @@
         // Desplegar barra de búsqueda en móvil
         if (searchToggle && mobileSearchBar) {
             searchToggle.addEventListener('click', () => {
+                if (drawer && drawer.getAttribute('aria-hidden') === 'false') {
+                    closeDrawer();
+                }
                 const isHidden = mobileSearchBar.classList.contains('hidden');
                 if (isHidden) {
                     mobileSearchBar.classList.remove('hidden');
