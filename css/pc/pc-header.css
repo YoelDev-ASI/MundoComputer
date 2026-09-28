@@ -175,6 +175,31 @@
     box-shadow: none;
 }
 
+/* Dropdown predictivo de búsqueda - Sin barra de desplazamiento en PC, iOS y Android */
+.header-search-dropdown,
+.header-search-dropdown * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.header-search-dropdown::-webkit-scrollbar,
+.header-search-dropdown *::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+.header-search-dropdown::-webkit-scrollbar-thumb,
+.header-search-dropdown *::-webkit-scrollbar-thumb,
+.header-search-dropdown::-webkit-scrollbar-track,
+.header-search-dropdown *::-webkit-scrollbar-track {
+    display: none !important;
+    background: transparent !important;
+    border: none !important;
+}
+
 /* Iconos y Botones de Acción del Encabezado (Carrito, Menú, Búsqueda) */
 .header-menu-btn {
     display: none;

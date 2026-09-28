@@ -93,14 +93,50 @@ body {
     }
 }
 
-/* Ocultar barra de scroll en contenedores horizontales */
+/* Ocultar barra de scroll en contenedores horizontales y verticales específicos */
 .scrollbar-none::-webkit-scrollbar {
-    display: none;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+.scrollbar-none::-webkit-scrollbar-thumb,
+.scrollbar-none::-webkit-scrollbar-track {
+    display: none !important;
+    background: transparent !important;
+    border: none !important;
 }
 
 .scrollbar-none {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Ocultar barra de desplazamiento en el buscador predictivo (PC, iOS y Android) */
+.header-search-dropdown,
+.header-search-dropdown * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.header-search-dropdown::-webkit-scrollbar,
+.header-search-dropdown *::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+.header-search-dropdown::-webkit-scrollbar-thumb,
+.header-search-dropdown *::-webkit-scrollbar-thumb,
+.header-search-dropdown::-webkit-scrollbar-track,
+.header-search-dropdown *::-webkit-scrollbar-track {
+    display: none !important;
+    background: transparent !important;
+    border: none !important;
 }
 
 /* Sin efecto de brillo (color plano limpio) */

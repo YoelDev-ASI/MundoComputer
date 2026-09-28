@@ -385,6 +385,23 @@
     text-shadow: none !important;
 }
 
+/* Ocultar barra de scroll en dropdown del buscador para móviles */
+.header-search-dropdown,
+.header-search-dropdown * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.header-search-dropdown::-webkit-scrollbar,
+.header-search-dropdown *::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+
 
 
 

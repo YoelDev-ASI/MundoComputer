@@ -16,8 +16,14 @@ function initGlobalSearch() {
         let dropdown = wrapper.querySelector('.header-search-dropdown');
         if (!dropdown) {
             dropdown = document.createElement('div');
-            dropdown.className = 'header-search-dropdown hidden absolute top-full left-0 right-0 mt-2 bg-gamer-carbon/95 backdrop-blur-xl border border-gamer-gris/90 rounded-2xl shadow-2xl z-50 overflow-hidden max-h-96 overflow-y-auto';
+            dropdown.className = 'header-search-dropdown scrollbar-none hidden absolute top-full left-0 right-0 mt-2 bg-gamer-carbon/95 backdrop-blur-xl border border-gamer-gris/90 rounded-2xl shadow-2xl z-50 overflow-hidden max-h-96 overflow-y-auto';
+            dropdown.style.scrollbarWidth = 'none';
+            dropdown.style.msOverflowStyle = 'none';
             wrapper.appendChild(dropdown);
+        } else {
+            dropdown.classList.add('scrollbar-none');
+            dropdown.style.scrollbarWidth = 'none';
+            dropdown.style.msOverflowStyle = 'none';
         }
 
         const handleSearch = (e) => {
