@@ -322,6 +322,20 @@
     display: flex !important;
 }
 
+.header-menu-btn,
+.header-menu-btn:hover,
+.header-menu-btn:focus,
+.header-menu-btn:active,
+.header-menu-btn.is-active {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
 /* ==========================================================================
    🎮 HERO BANNER MÓVIL (OPTIMIZADO PARA ANDROID, IOS Y SMARTPHONES)
    - Espaciado refinado y equilibrado (sin acolchados gigantes)

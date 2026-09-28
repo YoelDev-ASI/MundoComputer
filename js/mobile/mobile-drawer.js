@@ -53,7 +53,6 @@
             if (menuBtn) {
                 menuBtn.setAttribute('aria-expanded', 'true');
                 menuBtn.setAttribute('aria-label', 'Cerrar menú de navegación');
-                menuBtn.classList.add('is-active');
             }
 
             document.body.style.overflow = 'hidden';
@@ -77,7 +76,6 @@
             if (menuBtn) {
                 menuBtn.setAttribute('aria-expanded', 'false');
                 menuBtn.setAttribute('aria-label', 'Abrir menú de navegación');
-                menuBtn.classList.remove('is-active');
             }
 
             setTimeout(() => {

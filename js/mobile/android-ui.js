@@ -17,8 +17,8 @@
         document.addEventListener('pointerdown', (e) => {
             if (!document.documentElement.classList.contains('platform-android')) return;
             
-            // Los productos nunca tienen efectos ni vibración
-            if (e.target.closest('.pc-product-card, .product-card, .pc-catalog-grid')) return;
+            // Los productos y el botón de menú de 3 barras no tienen efectos de onda ni animaciones
+            if (e.target.closest('.pc-product-card, .product-card, .pc-catalog-grid, .header-menu-btn, #mobile-menu-btn')) return;
 
             const target = e.target.closest('.android-ripple, button, a');
             if (!target) return;
